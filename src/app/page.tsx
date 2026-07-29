@@ -5,6 +5,8 @@ import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import ImageGallery from "@/components/sections/ImageGallery";
 import ProductDetails from "@/components/sections/ProductDetails";
+import FeatureShowcase from "@/components/sections/Showcase";
+import UseCases from "@/components/sections/Usecases";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <UseCases />
+        <FeatureShowcase />
         <ProductDetails />
         <WhyChooseUs />
         <ImageGallery />

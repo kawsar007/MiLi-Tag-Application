@@ -175,3 +175,62 @@ export const productContents: ProductContent[] = [
     image: "/images/icon4.webp",
   },
 ];
+
+export type ShowcaseRow = {
+  id: string;
+  heading: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  /** Which side the image sits on at the lg breakpoint. */
+  imageSide: "left" | "right";
+};
+
+export const showcaseRows: ShowcaseRow[] = [
+  {
+    id: "never-lose-track",
+    heading: "Never Lose Track",
+    description:
+      "MiTag Duo is a dual-system smart tracker for your keys, bags, luggage, and everyday essentials. Get leave-behind alerts and locate your items from your phone, so you never worry about leaving something behind.",
+    image: {
+      src: "/images/showcase/showcase1.webp",
+      alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
+    },
+    imageSide: "right",
+  },
+  {
+    id: "works-with-your-phone",
+    heading: "Works with Your Phone",
+    description:
+      "MiTag Duo works with both Apple Find My and Google Find Hub, so you can track your essentials with the phone you already use.",
+    image: {
+      src: "/images/showcase/showcase2.webp",
+      alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
+    },
+    imageSide: "left",
+  },
+  {
+    id: "built-for-everyday-life",
+    heading: "Built for Everyday Life",
+    description:
+      "Rainy rides, crowded airports, coffee shop stops — MiLi is designed for everyday moments with IP67 water resistance and a replaceable battery built to last longer.",
+    image: {
+      src: "/images/showcase/showcase3.webp",
+      alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
+    },
+    imageSide: "right",
+  },
+  {
+    id: "alerts-before-you-forget",
+    heading: "Alerts Before You Forget",
+    description:
+      "Forgot your backpack at a café? Left your luggage behind at the airport? MiLi reminds you before small mistakes turn into stressful moments.",
+    image: {
+      src: "/images/showcase/showcase4.webp",
+      alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
+    },
+    imageSide: "left",
+  },
+];
