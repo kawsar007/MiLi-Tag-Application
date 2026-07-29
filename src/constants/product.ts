@@ -27,12 +27,12 @@ export const site = {
 };
 
 export const heroCopy = {
-  eyebrow: "Cash on Delivery, nationwide",
-  title: "Hear everything. Skip nothing.",
+  eyebrow: "ক্যাশ অন ডেলিভারি, দেশব্যাপী",
+  title: "আপনার মূল্যবান জিনিস সর্বদা নিরাপদ রাখুন",
   subtitle:
-    "Pulse Pro cancels the commute so you can hear the call, the track, the moment — the way it was mixed.",
-  description:
-    "Hybrid active noise cancellation, a 32-hour case, and a fit that stays put from your morning rickshaw ride to your last meeting. Order now, pay when it arrives.",
+    "MiLi MiTag দিয়ে আপনার চাবি, ব্যাগ, মানিব্যাগ বা যেকোনো গুরুত্বপূর্ণ জিনিস ট্র্যাক করুন। Android 9+ ডিভাইসে Google Find My Device নেটওয়ার্কের মাধ্যমে সহজেই খুঁজে পান।",
+  // description:
+  //   "Hybrid active noise cancellation, a 32-hour case, and a fit that stays put from your morning rickshaw ride to your last meeting. Order now, pay when it arrives.",
 };
 
 export const features: FeatureItem[] = [

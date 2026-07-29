@@ -4,6 +4,7 @@ import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
 import ImageGallery from "@/components/sections/ImageGallery";
+import LostToFoundBanner from "@/components/sections/LostToFoundBanner";
 import ProductDetails from "@/components/sections/ProductDetails";
 import FeatureShowcase from "@/components/sections/Showcase";
 import UseCases from "@/components/sections/Usecases";
@@ -14,7 +15,9 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+
         <Hero />
+        <LostToFoundBanner />
         <UseCases />
         <FeatureShowcase />
         <ProductDetails />
