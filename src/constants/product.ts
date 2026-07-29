@@ -1,7 +1,7 @@
 import type { FaqItem, FeatureItem, SellingPoint, SpecItem } from "@/types";
 
 export const site = {
-  name: "Pulse Pro",
+  name: "MiLi Tag",
   tagline: "Earbuds tuned for real days, not showrooms",
   price: {
     current: "৳ 3,290",
