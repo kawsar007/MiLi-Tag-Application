@@ -17,23 +17,23 @@ export type GalleryImage = {
 export const galleryImages: GalleryImage[] = [
   {
     id: "img-01",
-    src: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&q=80",
+    src: "/images/gallery/g1.webp",
     alt: "Product resting on a matte concrete surface under soft daylight",
-    caption: "Everyday carry, reimagined",
+    // caption: "Everyday carry, reimagined",
     size: "lg",
   },
   {
     id: "img-02",
-    src: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800&q=80",
+    src: "/images/gallery/g2.webp",
     alt: "Close-up detail of the stitched leather edge",
-    caption: "Hand-finished edges",
+    // caption: "Hand-finished edges",
     size: "md",
   },
   {
     id: "img-03",
-    src: "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=800&q=80",
+    src: "/images/gallery/g3.webp",
     alt: "Product shown from a top-down angle on a linen backdrop",
-    caption: "Considered from every angle",
+    // caption: "Considered from every angle",
     size: "md",
   },
   // {
@@ -59,16 +59,16 @@ export const galleryImages: GalleryImage[] = [
   // },
   {
     id: "img-07",
-    src: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+    src: "/images/gallery/g4.webp",
     alt: "Product packaging shown alongside the unboxed item",
-    caption: "Packaging with the same care",
+    // caption: "Packaging with the same care",
     size: "md",
   },
   {
     id: "img-08",
-    src: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&q=80",
+    src: "/images/gallery/g5.webp",
     alt: "Wide shot of the product in a bright studio environment",
-    caption: "Studio to shelf, unchanged",
+    // caption: "Studio to shelf, unchanged",
     size: "wide",
   },
 ];

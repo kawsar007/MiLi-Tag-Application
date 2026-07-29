@@ -1,7 +1,7 @@
-import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { heroCopy, site } from "@/constants/product";
 import Image from "next/image";
+import ContactCta from "./ContactCta";
 
 export default function Hero() {
   return (
@@ -28,7 +28,7 @@ export default function Hero() {
           </h1>
 
           <p className="max-w-lg text-lg text-ink/80">{heroCopy.subtitle}</p>
-          <p className="max-w-lg text-sm leading-relaxed text-steel">{heroCopy.description}</p>
+          {/* <p className="max-w-lg text-sm leading-relaxed text-steel">{heroCopy.description}</p> */}
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <span className="font-display text-2xl font-semibold text-ink">
@@ -40,14 +40,10 @@ export default function Hero() {
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Button href="#order" variant="primary">
-              Order with COD
-            </Button>
-            <Button href="#product" variant="secondary">
-              See full specs
-            </Button>
+          <div className="w-full">
+            <ContactCta />
           </div>
+
         </div>
 
         <div className="order-1 flex justify-center lg:order-1 lg:justify-start">
