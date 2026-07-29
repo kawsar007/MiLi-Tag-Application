@@ -1,4 +1,4 @@
-import type { FaqItem, FeatureItem, SellingPoint, SpecItem } from "@/types";
+import type { FaqItem, FeatureItem, ProductContent, SellingPoint, SpecItem } from "@/types";
 
 export const site = {
   name: "MiLi Tag",
@@ -103,33 +103,75 @@ export const sellingPoints: SellingPoint[] = [
 
 export const faqs: FaqItem[] = [
   {
-    id: "cod",
-    question: "How does Cash on Delivery work?",
-    answer:
-      "Place your order with your name, phone number, and address. Our rider brings Pulse Pro to your door — you check it and pay in cash there. No advance payment, no card needed.",
+    id: "durability",
+    question: "Durability",
+    answer: [
+      "Premium ABS + PC construction for long-lasting durability.",
+      "Scratch-resistant matte finish.",
+      "Lightweight yet sturdy design.",
+      "Built for daily use and travel.",
+    ],
   },
   {
-    id: "delivery-time",
-    question: "How long does delivery take?",
-    answer:
-      "Inside Dhaka, orders usually arrive within 24 hours. Outside Dhaka, expect 2–3 business days depending on your district.",
+    id: "design",
+    question: "Design",
+    answer: [
+      "Modern ergonomic design for a comfortable fit.",
+      "Compact charging case that's easy to carry.",
+      "Minimalist appearance with a premium finish.",
+    ],
   },
   {
-    id: "warranty",
-    question: "Is there a warranty?",
-    answer:
-      "Yes. Every Pulse Pro comes with a 12-month replacement warranty covering manufacturing defects in the buds and case.",
+    id: "battery",
+    question: "Battery",
+    answer: [
+      "Up to 6 hours of playback on a single charge.",
+      "Up to 30 hours with the charging case.",
+      "Fast charging via USB-C.",
+    ],
   },
   {
-    id: "return",
-    question: "Can I return or exchange it?",
-    answer:
-      "You can inspect the product at your doorstep before paying. If anything is wrong, decline it on the spot and it goes straight back — no cost to you.",
+    id: "connectivity",
+    question: "Connectivity",
+    answer: [
+      "Bluetooth 5.3 for a stable connection.",
+      "Compatible with Android, iPhone, tablets, and laptops.",
+      "Quick auto-pairing after the first connection.",
+    ],
   },
   {
-    id: "battery-life",
-    question: "What if the battery seems short on day one?",
-    answer:
-      "Give the case a full charge before first use — batteries ship at a partial charge to protect the cells in transit. Full runtime shows up from the second charge onward.",
+    id: "packing-list",
+    question: "Packing List",
+    answer: [
+      "1 × Pulse Pro Earbuds",
+      "1 × Charging Case",
+      "1 × USB-C Charging Cable",
+      "3 × Pairs of Silicone Ear Tips (S/M/L)",
+      "1 × User Manual",
+    ],
+  },
+];
+
+
+export const productContents: ProductContent[] = [
+  {
+    id: "mitag-duo",
+    name: "MiTag Duo",
+    image: "/images/icon1.webp",
+  },
+  {
+    id: "key-ring",
+    name: "Key Ring",
+    image: "/images/icon2.avif",
+  },
+  {
+    id: "battery",
+    name: "1x CR2032 Battery",
+    image: "/images/icon3.avif",
+  },
+  {
+    id: "user-manual",
+    name: "User Manual",
+    image: "/images/icon4.webp",
   },
 ];

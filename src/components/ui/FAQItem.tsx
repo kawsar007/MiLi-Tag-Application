@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import type { FaqItem } from "@/types";
+import { useState } from "react";
 
 interface FAQItemProps {
   faq: FaqItem;
@@ -12,7 +12,7 @@ export default function FAQItem({ faq, defaultOpen = false }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-ink-line/60">
+    <div className="border-b border-cloud-line">
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
@@ -20,13 +20,12 @@ export default function FAQItem({ faq, defaultOpen = false }: FAQItemProps) {
         aria-controls={`faq-panel-${faq.id}`}
         className="flex w-full items-center justify-between gap-4 py-5 text-left"
       >
-        <span className="font-display text-base font-medium text-cloud sm:text-lg">
+        <span className="font-display text-base font-medium text-ink sm:text-lg">
           {faq.question}
         </span>
         <span
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink-line text-cyan transition-transform duration-300 ${
-            isOpen ? "rotate-45 border-cyan" : ""
-          }`}
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-cloud-line text-indigo transition-transform duration-300 ${isOpen ? "rotate-45 border-indigo" : ""
+            }`}
           aria-hidden="true"
         >
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -44,9 +43,17 @@ export default function FAQItem({ faq, defaultOpen = false }: FAQItemProps) {
         }}
       >
         <div className="overflow-hidden">
-          <p className="pb-5 pr-10 text-sm leading-relaxed text-steel-soft">
-            {faq.answer}
-          </p>
+          {Array.isArray(faq.answer) ? (
+            <ul className="pb-5 pr-10 list-disc space-y-2 pl-5 text-sm leading-relaxed text-steel">
+              {faq.answer.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="pb-5 pr-10 text-sm leading-relaxed text-steel">
+              {faq.answer}
+            </p>
+          )}
         </div>
       </div>
     </div>

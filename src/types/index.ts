@@ -18,10 +18,16 @@ export interface SellingPoint {
 export interface FaqItem {
   id: string;
   question: string;
-  answer: string;
+  answer: string[];
 }
 
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface ProductContent {
+  id: string;
+  name: string;
+  image?: string; // optional image path
 }
