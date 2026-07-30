@@ -30,7 +30,17 @@ function ShowcaseRowItem({ row }: { row: ShowcaseRow }) {
       </div>
 
       {/* Image panel: full-bleed, no padding, no rounding */}
-      <div
+      <div className={`order-2 flex items-center justify-center ${imageOrderClass}`}>
+        <Image
+          src={row.image.src}
+          alt={row.image.alt}
+          width={900}
+          height={700}
+          sizes="(min-width:1024px) 50vw, 100vw"
+          className="h-auto w-full max-w-full object-contain"
+        />
+      </div>
+      {/* <div
         className={`relative order-2 min-h-[280px] sm:min-h-[320px] lg:min-h-[420px] ${imageOrderClass}`}
       >
         <Image
@@ -40,7 +50,7 @@ function ShowcaseRowItem({ row }: { row: ShowcaseRow }) {
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover"
         />
-      </div>
+      </div> */}
     </div>
   );
 }

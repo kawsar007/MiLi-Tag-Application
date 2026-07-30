@@ -1,3 +1,6 @@
+import FadeIn from "@/components/animations/FadeIn";
+import FadeUp from "@/components/animations/FadeUp";
+import ZoomIn from "@/components/animations/ZoomIn";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import Contact from "@/components/sections/Contact";
@@ -14,16 +17,32 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-
-        <Hero />
-        <LostToFoundBanner />
-        <UseCases />
-        <FeatureShowcase />
+        <FadeUp>
+          <Hero />
+        </FadeUp>
+        <ZoomIn>
+          <LostToFoundBanner />
+        </ZoomIn>
+        <FadeIn>
+          <UseCases />
+        </FadeIn>
+        <FadeUp>
+          <FeatureShowcase />
+        </FadeUp>
         {/* <ProductDetails /> */}
-        <WhyChooseUs />
-        <ImageGallery />
-        <FAQ />
-        <Contact />
+        <FadeUp>
+          <WhyChooseUs />
+        </FadeUp>
+        <FadeIn>
+          <ImageGallery />
+        </FadeIn>
+
+        <FadeUp>
+          <FAQ />
+        </FadeUp>
+        <FadeUp>
+          <Contact />
+        </FadeUp>
       </main>
       <Footer />
     </>
