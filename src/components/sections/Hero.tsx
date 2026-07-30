@@ -1,3 +1,334 @@
+// "use client";
+
+// import Container from "@/components/ui/Container";
+// import { heroCopy, site } from "@/constants/product";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+// import Image from "next/image";
+// import { useCallback, useEffect, useRef, useState } from "react";
+// import ContactCta from "./ContactCta";
+
+// // Product images array - replace with your actual image paths
+// const productImages = [
+//   { id: 1, src: "/images/gallery/g1.webp", alt: "Product Image 1" },
+//   { id: 2, src: "/images/gallery/g2.webp", alt: "Product Image 2" },
+//   { id: 3, src: "/images/gallery/g3.webp", alt: "Product Image 3" },
+//   { id: 4, src: "/images/gallery/g4.webp", alt: "Product Image 4" },
+//   { id: 5, src: "/images/gallery/g5.webp", alt: "Product Image 5" },
+//   { id: 6, src: "/images/gallery/g6.webp", alt: "Product Image 6" },
+//   { id: 7, src: "/images/gallery/g7.webp", alt: "Product Image 7" },
+// ];
+
+// export default function Hero() {
+//   const [activeImageIndex, setActiveImageIndex] = useState(0);
+//   const [isTransitioning, setIsTransitioning] = useState(false);
+//   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+//   const [isZoomed, setIsZoomed] = useState(false);
+//   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+//   const mainImageRef = useRef<HTMLDivElement>(null);
+//   const thumbnailContainerRef = useRef<HTMLDivElement>(null);
+//   const imageContainerRef = useRef<HTMLDivElement>(null);
+
+//   const activeImage = productImages[activeImageIndex];
+
+//   // Handle image change with transition
+//   const handleImageChange = useCallback((index: number) => {
+//     if (index === activeImageIndex || isTransitioning) return;
+
+//     setIsTransitioning(true);
+//     setActiveImageIndex(index);
+//     setIsZoomed(false); // Reset zoom when changing images
+
+//     // Scroll active thumbnail into view
+//     setTimeout(() => {
+//       const activeThumb = thumbnailContainerRef.current?.children[index] as HTMLElement;
+//       if (activeThumb) {
+//         activeThumb.scrollIntoView({
+//           behavior: 'smooth',
+//           block: 'nearest',
+//           inline: 'center',
+//         });
+//       }
+//     }, 50);
+
+//     // Reset transition state after animation completes
+//     setTimeout(() => {
+//       setIsTransitioning(false);
+//     }, 300);
+//   }, [activeImageIndex, isTransitioning]);
+
+//   // Navigation functions
+//   const goToPrevious = useCallback(() => {
+//     const newIndex = activeImageIndex === 0 ? productImages.length - 1 : activeImageIndex - 1;
+//     handleImageChange(newIndex);
+//   }, [activeImageIndex, handleImageChange]);
+
+//   const goToNext = useCallback(() => {
+//     const newIndex = activeImageIndex === productImages.length - 1 ? 0 : activeImageIndex + 1;
+//     handleImageChange(newIndex);
+//   }, [activeImageIndex, handleImageChange]);
+
+//   // Keyboard navigation
+//   const handleKeyDown = useCallback((e: KeyboardEvent) => {
+//     if (e.key === "ArrowLeft") {
+//       e.preventDefault();
+//       goToPrevious();
+//     } else if (e.key === "ArrowRight") {
+//       e.preventDefault();
+//       goToNext();
+//     }
+//   }, [goToPrevious, goToNext]);
+
+//   useEffect(() => {
+//     document.addEventListener("keydown", handleKeyDown);
+//     return () => document.removeEventListener("keydown", handleKeyDown);
+//   }, [handleKeyDown]);
+
+//   // Touch handlers for mobile swipe
+//   const handleTouchStart = (e: React.TouchEvent) => {
+//     setTouchStartX(e.touches[0].clientX);
+//   };
+
+//   const handleTouchEnd = (e: React.TouchEvent) => {
+//     if (touchStartX === null) return;
+
+//     const touchEndX = e.changedTouches[0].clientX;
+//     const diff = touchStartX - touchEndX;
+
+//     if (Math.abs(diff) > 50) { // Minimum swipe distance
+//       if (diff > 0) {
+//         goToNext();
+//       } else {
+//         goToPrevious();
+//       }
+//     }
+
+//     setTouchStartX(null);
+//   };
+
+//   // Zoom handlers for desktop
+//   const handleMouseEnter = () => {
+//     if (window.innerWidth >= 1024) { // Only on desktop
+//       setIsZoomed(true);
+//     }
+//   };
+
+//   const handleMouseLeave = () => {
+//     setIsZoomed(false);
+//   };
+
+//   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+//     if (!isZoomed || !imageContainerRef.current) return;
+
+//     const rect = imageContainerRef.current.getBoundingClientRect();
+//     const x = ((e.clientX - rect.left) / rect.width) * 100;
+//     const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+//     setMousePosition({ x, y });
+//   };
+
+//   // Touch zoom handler for mobile (double tap to zoom)
+//   const handleTouchZoom = (e: React.TouchEvent) => {
+//     if (e.touches.length === 2) {
+//       // Pinch zoom - let browser handle it naturally
+//       return;
+//     }
+//   };
+
+//   return (
+//     <section id="top" className="relative overflow-hidden bg-cloud text-ink">
+//       {/* subtle grid texture, kept quiet so the content stays the focal point */}
+//       <div
+//         className="pointer-events-none absolute inset-0 opacity-[0.05]"
+//         aria-hidden="true"
+//       />
+
+//       <Container className="relative grid gap-12 py-8 sm:py-10 lg:grid-cols-2 lg:items-center lg:py-14">
+//         <div className="order-2 flex flex-col items-start gap-6 lg:order-2">
+//           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-indigo shadow-sm">
+//             {heroCopy.eyebrow}
+//           </span>
+
+//           <h1 className="heading-primary text-ink">
+//             {/* {heroCopy.title} */}
+//             আপনার মূল্যবান জিনিস <span className="text-indigo">সর্বদা নিরাপদ রাখুন</span>
+//           </h1>
+
+//           <p className="max-w-lg text-lg text-ink/80">{heroCopy.subtitle}</p>
+
+//           <div className="flex flex-wrap items-center gap-4 pt-2">
+//             <span className="font-display text-2xl font-semibold text-ink">
+//               {site.price.current}
+//             </span>
+//             <span className="text-sm text-steel line-through">{site.price.original}</span>
+//             <span className="rounded-full bg-indigo/10 px-3 py-1 text-xs font-medium text-indigo">
+//               {site.price.discountLabel}
+//             </span>
+//           </div>
+
+//           <div className="w-full">
+//             <ContactCta />
+//           </div>
+//         </div>
+
+//         {/* Product Gallery - Left Side */}
+//         <div className="order-1 flex flex-col items-center gap-4 lg:order-1 lg:items-start">
+//           {/* Main Image Container with Navigation Arrows */}
+//           <div
+//             ref={mainImageRef}
+//             className="relative w-full overflow-hidden rounded-2xl border border-cloud-line bg-cloud-card p-4 sm:p-6"
+//             onTouchStart={handleTouchStart}
+//             onTouchEnd={handleTouchEnd}
+//             onTouchMove={handleTouchZoom}
+//             role="img"
+//             aria-label={`Product image ${activeImageIndex + 1} of ${productImages.length}`}
+//           >
+//             <div
+//               ref={imageContainerRef}
+//               className="relative aspect-square w-full overflow-hidden cursor-zoom-in lg:cursor-zoom-in"
+//               onMouseEnter={handleMouseEnter}
+//               onMouseLeave={handleMouseLeave}
+//               onMouseMove={handleMouseMove}
+//             >
+//               <div
+//                 className="relative w-full h-full transition-transform duration-300 ease-out"
+//                 style={{
+//                   transform: isZoomed ? 'scale(2)' : 'scale(1)',
+//                   transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
+//                 }}
+//               >
+//                 {/* <Image
+//                   src={activeImage.src}
+//                   alt={activeImage.alt}
+//                   fill
+//                   priority
+//                   className={`
+//                     object-contain transition-opacity duration-300 ease-in-out
+//                     ${isTransitioning ? 'opacity-0' : 'opacity-100'}
+//                   `}
+//                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+//                   quality={90}
+//                   draggable={false}
+//                 /> */}
+//                 <Image
+//                   src={activeImage.src}
+//                   alt={activeImage.alt}
+//                   fill
+//                   priority
+//                   className={`
+//     object-cover transition-opacity duration-300 ease-in-out
+//     ${isTransitioning ? "opacity-0" : "opacity-100"}
+//   `}
+//                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+//                   quality={90}
+//                   draggable={false}
+//                 />
+//               </div>
+//             </div>
+
+//             {/* Navigation Arrows */}
+//             <button
+//               onClick={goToPrevious}
+//               className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-ink shadow-lg transition-all duration-200 hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-indigo focus:ring-offset-2 backdrop-blur-sm sm:left-4 z-10"
+//               aria-label="Previous image"
+//               disabled={isTransitioning}
+//             >
+//               <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
+//             </button>
+
+//             <button
+//               onClick={goToNext}
+//               className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-ink shadow-lg transition-all duration-200 hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-indigo focus:ring-offset-2 backdrop-blur-sm sm:right-4 z-10"
+//               aria-label="Next image"
+//               disabled={isTransitioning}
+//             >
+//               <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+//             </button>
+
+//             {/* Image Counter - Mobile Only */}
+//             <div className="absolute bottom-4 right-4 rounded-full bg-black/50 px-3 py-1 text-xs text-white backdrop-blur-sm lg:hidden z-10">
+//               {activeImageIndex + 1} / {productImages.length}
+//             </div>
+
+//             {/* Zoom indicator - Desktop Only */}
+//             <div className="absolute bottom-4 left-4 hidden lg:block">
+//               <span className="rounded-full bg-black/50 px-3 py-1 text-xs text-white backdrop-blur-sm">
+//                 {isZoomed ? '🔍 Zoomed' : 'Hover to zoom'}
+//               </span>
+//             </div>
+//           </div>
+
+//           {/* Thumbnail Gallery - Full Width */}
+//           <div className="w-full max-w-sm mx-auto lg:max-w-full lg:mx-0">
+//             <div
+//               ref={thumbnailContainerRef}
+//               className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory"
+//               style={{
+//                 scrollbarWidth: 'none', // Firefox
+//                 msOverflowStyle: 'none', // IE/Edge
+//               }}
+//             >
+//               {productImages.map((image, index) => (
+//                 <button
+//                   key={image.id}
+//                   onClick={() => handleImageChange(index)}
+//                   onMouseEnter={() => handleImageChange(index)}
+//                   className={`
+//                     relative flex-1 min-w-[60px] max-w-[80px] sm:min-w-[70px] sm:max-w-[90px] lg:min-w-[80px] lg:max-w-[100px]
+//                     aspect-square rounded-lg overflow-hidden border-2 transition-all duration-200
+//                     hover:scale-105 hover:shadow-md
+//                     focus:outline-none focus:ring-2 focus:ring-indigo focus:ring-offset-2
+//                     snap-start
+//                     ${activeImageIndex === index
+//                       ? 'border-indigo shadow-lg ring-2 ring-indigo/20'
+//                       : 'border-cloud-line hover:border-indigo/50'
+//                     }
+//                   `}
+//                   aria-label={`View ${image.alt}`}
+//                   aria-current={activeImageIndex === index ? 'true' : 'false'}
+//                 >
+//                   <Image
+//                     src={image.src}
+//                     alt={image.alt}
+//                     fill
+//                     className="object-cover"
+//                     sizes="(max-width: 640px) 60px, (max-width: 768px) 70px, 80px"
+//                     quality={85}
+//                     draggable={false}
+//                   />
+//                   {/* Active indicator overlay */}
+//                   {activeImageIndex === index && (
+//                     <div className="absolute inset-0 bg-indigo/5 pointer-events-none" />
+//                   )}
+//                 </button>
+//               ))}
+//             </div>
+
+//             {/* Thumbnail Navigation Indicators - Mobile Only */}
+//             <div className="mt-3 flex justify-center gap-1.5 lg:hidden">
+//               {productImages.map((_, index) => (
+//                 <button
+//                   key={index}
+//                   onClick={() => handleImageChange(index)}
+//                   className={`
+//                     h-1.5 rounded-full transition-all duration-200
+//                     ${activeImageIndex === index
+//                       ? 'w-6 bg-indigo'
+//                       : 'w-1.5 bg-cloud-line hover:bg-indigo/50'
+//                     }
+//                   `}
+//                   aria-label={`Go to image ${index + 1}`}
+//                 />
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </Container>
+//     </section>
+//   );
+// }
+
+
+
 "use client";
 
 import Container from "@/components/ui/Container";
@@ -30,15 +361,13 @@ export default function Hero() {
 
   const activeImage = productImages[activeImageIndex];
 
-  // Handle image change with transition
   const handleImageChange = useCallback((index: number) => {
     if (index === activeImageIndex || isTransitioning) return;
 
     setIsTransitioning(true);
     setActiveImageIndex(index);
-    setIsZoomed(false); // Reset zoom when changing images
+    setIsZoomed(false);
 
-    // Scroll active thumbnail into view
     setTimeout(() => {
       const activeThumb = thumbnailContainerRef.current?.children[index] as HTMLElement;
       if (activeThumb) {
@@ -50,13 +379,11 @@ export default function Hero() {
       }
     }, 50);
 
-    // Reset transition state after animation completes
     setTimeout(() => {
       setIsTransitioning(false);
     }, 300);
   }, [activeImageIndex, isTransitioning]);
 
-  // Navigation functions
   const goToPrevious = useCallback(() => {
     const newIndex = activeImageIndex === 0 ? productImages.length - 1 : activeImageIndex - 1;
     handleImageChange(newIndex);
@@ -67,7 +394,6 @@ export default function Hero() {
     handleImageChange(newIndex);
   }, [activeImageIndex, handleImageChange]);
 
-  // Keyboard navigation
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "ArrowLeft") {
       e.preventDefault();
@@ -83,7 +409,6 @@ export default function Hero() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStartX(e.touches[0].clientX);
   };
@@ -94,7 +419,7 @@ export default function Hero() {
     const touchEndX = e.changedTouches[0].clientX;
     const diff = touchStartX - touchEndX;
 
-    if (Math.abs(diff) > 50) { // Minimum swipe distance
+    if (Math.abs(diff) > 50) {
       if (diff > 0) {
         goToNext();
       } else {
@@ -105,9 +430,8 @@ export default function Hero() {
     setTouchStartX(null);
   };
 
-  // Zoom handlers for desktop
   const handleMouseEnter = () => {
-    if (window.innerWidth >= 1024) { // Only on desktop
+    if (window.innerWidth >= 1024) {
       setIsZoomed(true);
     }
   };
@@ -126,30 +450,29 @@ export default function Hero() {
     setMousePosition({ x, y });
   };
 
-  // Touch zoom handler for mobile (double tap to zoom)
   const handleTouchZoom = (e: React.TouchEvent) => {
     if (e.touches.length === 2) {
-      // Pinch zoom - let browser handle it naturally
       return;
     }
   };
 
   return (
     <section id="top" className="relative overflow-hidden bg-cloud text-ink">
-      {/* subtle grid texture, kept quiet so the content stays the focal point */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.05]"
         aria-hidden="true"
       />
 
       <Container className="relative grid gap-12 py-8 sm:py-10 lg:grid-cols-2 lg:items-center lg:py-14">
-        <div className="order-2 flex flex-col items-start gap-6 lg:order-2">
+        {/* min-w-0: without this, CSS Grid lets this column's content (the heading,
+            price row, etc.) force the track wider than the viewport on mobile,
+            which is the root cause of the left-shift — see chat explanation. */}
+        <div className="order-2 flex min-w-0 flex-col items-start gap-6 lg:order-2">
           <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-indigo shadow-sm">
             {heroCopy.eyebrow}
           </span>
 
           <h1 className="heading-primary text-ink">
-            {/* {heroCopy.title} */}
             আপনার মূল্যবান জিনিস <span className="text-indigo">সর্বদা নিরাপদ রাখুন</span>
           </h1>
 
@@ -170,9 +493,10 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Product Gallery - Left Side */}
-        <div className="order-1 flex flex-col items-center gap-4 lg:order-1 lg:items-start">
-          {/* Main Image Container with Navigation Arrows */}
+        {/* min-w-0: same reason as the text column above — allows this column to
+            shrink to the actual available width instead of being forced wide by
+            its content on narrow screens. */}
+        <div className="order-1 flex min-w-0 flex-col items-center gap-4 lg:order-1 lg:items-start">
           <div
             ref={mainImageRef}
             className="relative w-full overflow-hidden rounded-2xl border border-cloud-line bg-cloud-card p-4 sm:p-6"
@@ -196,19 +520,6 @@ export default function Hero() {
                   transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
                 }}
               >
-                {/* <Image
-                  src={activeImage.src}
-                  alt={activeImage.alt}
-                  fill
-                  priority
-                  className={`
-                    object-contain transition-opacity duration-300 ease-in-out
-                    ${isTransitioning ? 'opacity-0' : 'opacity-100'}
-                  `}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  quality={90}
-                  draggable={false}
-                /> */}
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
@@ -225,7 +536,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Navigation Arrows */}
             <button
               onClick={goToPrevious}
               className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-ink shadow-lg transition-all duration-200 hover:bg-white hover:scale-110 focus:outline-none focus:ring-2 focus:ring-indigo focus:ring-offset-2 backdrop-blur-sm sm:left-4 z-10"
@@ -244,12 +554,10 @@ export default function Hero() {
               <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
 
-            {/* Image Counter - Mobile Only */}
             <div className="absolute bottom-4 right-4 rounded-full bg-black/50 px-3 py-1 text-xs text-white backdrop-blur-sm lg:hidden z-10">
               {activeImageIndex + 1} / {productImages.length}
             </div>
 
-            {/* Zoom indicator - Desktop Only */}
             <div className="absolute bottom-4 left-4 hidden lg:block">
               <span className="rounded-full bg-black/50 px-3 py-1 text-xs text-white backdrop-blur-sm">
                 {isZoomed ? '🔍 Zoomed' : 'Hover to zoom'}
@@ -257,14 +565,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Thumbnail Gallery - Full Width */}
           <div className="w-full max-w-sm mx-auto lg:max-w-full lg:mx-0">
             <div
               ref={thumbnailContainerRef}
               className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory"
               style={{
-                scrollbarWidth: 'none', // Firefox
-                msOverflowStyle: 'none', // IE/Edge
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none',
               }}
             >
               {productImages.map((image, index) => (
@@ -295,7 +602,6 @@ export default function Hero() {
                     quality={85}
                     draggable={false}
                   />
-                  {/* Active indicator overlay */}
                   {activeImageIndex === index && (
                     <div className="absolute inset-0 bg-indigo/5 pointer-events-none" />
                   )}
@@ -303,7 +609,6 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Thumbnail Navigation Indicators - Mobile Only */}
             <div className="mt-3 flex justify-center gap-1.5 lg:hidden">
               {productImages.map((_, index) => (
                 <button
