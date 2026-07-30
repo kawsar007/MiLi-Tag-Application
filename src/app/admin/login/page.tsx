@@ -1,5 +1,5 @@
-import { Suspense } from "react";
 import LoginForm from "@/components/admin/LoginForm";
+import { Suspense } from "react";
 
 export default function AdminLoginPage() {
   return (
@@ -9,7 +9,7 @@ export default function AdminLoginPage() {
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo text-sm font-bold text-white">
             P
           </span>
-          <h1 className="font-display text-xl font-medium text-cloud">Pulse Pro Admin</h1>
+          <h1 className="font-display text-xl font-medium text-cloud">MiLi Tag Admin</h1>
           <p className="text-sm text-steel-soft">Sign in to manage orders.</p>
         </div>
 

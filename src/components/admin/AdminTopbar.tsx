@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import type { AdminSession } from "@/types/order";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AdminTopbar() {
   const router = useRouter();
@@ -16,7 +16,7 @@ export default function AdminTopbar() {
       .then((data) => {
         if (!cancelled && data?.admin) setAdmin(data.admin);
       })
-      .catch(() => {});
+      .catch(() => { });
     return () => {
       cancelled = true;
     };
@@ -35,7 +35,7 @@ export default function AdminTopbar() {
 
   return (
     <header className="flex h-16 items-center justify-between border-b border-cloud-line bg-cloud-card px-5 sm:px-8">
-      <span className="font-display text-lg font-medium text-ink">Pulse Pro Admin</span>
+      <span className="font-display text-lg font-medium text-ink">MiLi Tag Admin</span>
       <div className="flex items-center gap-4">
         {admin ? (
           <span className="hidden text-sm text-steel sm:inline">

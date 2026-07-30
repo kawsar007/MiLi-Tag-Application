@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -21,21 +21,50 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pulse Pro — Wireless ANC Earbuds | Cash on Delivery",
+  title: "MiLi Tag — Smart Bluetooth Tracking Device | Cash on Delivery Bangladesh",
   description:
-    "Pulse Pro wireless earbuds: hybrid ANC, 32-hour battery, titanium-coated drivers. Order online, pay Cash on Delivery across Bangladesh.",
+    "Never lose your valuables again with MiLi Tag. Track your keys, wallet, bag, luggage, and more using the MiLi app. Order online with Cash on Delivery available across Bangladesh.",
   keywords: [
-    "Pulse Pro",
-    "wireless earbuds",
-    "ANC earbuds",
-    "cash on delivery",
-    "Bangladesh earbuds",
+    "MiLi Tag",
+    "MiLi Tracking Device",
+    "Bluetooth Tracker",
+    "Smart Tracker",
+    "Item Finder",
+    "Key Finder",
+    "Wallet Tracker",
+    "Bag Tracker",
+    "Luggage Tracker",
+    "GPS Tracker",
+    "Find My Device",
+    "Bluetooth Tag",
+    "Anti Lost Device",
+    "Cash on Delivery",
+    "Bangladesh",
   ],
+  authors: [
+    {
+      name: "MiLi Tag",
+    },
+  ],
+  creator: "MiLi Tag",
+  publisher: "MiLi Tag",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "Pulse Pro — Wireless ANC Earbuds",
+    title: "MiLi Tag — Smart Bluetooth Tracking Device",
     description:
-      "Hybrid ANC, 32-hour battery, titanium-coated drivers. Cash on Delivery nationwide.",
+      "Track your keys, wallet, luggage, bags, and other valuables with MiLi Tag. Fast nationwide Cash on Delivery available across Bangladesh.",
     type: "website",
+    locale: "en_US",
+    siteName: "MiLi Tag",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MiLi Tag — Smart Bluetooth Tracking Device",
+    description:
+      "Never lose your valuables. Order MiLi Tag with Cash on Delivery anywhere in Bangladesh.",
   },
 };
 

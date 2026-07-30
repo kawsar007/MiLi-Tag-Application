@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------
-   Pulse Pro — Design Tokens
+   MiLi Tag — Design Tokens
    Ink (graphite) + Cloud (warm paper) surfaces
-   Signal Indigo primary, Pulse Cyan signature accent
+   Signal Indigo primary, MiLi Cyan signature accent
 --------------------------------------------------------- */
 :root {
   --color-ink: #14161a;

@@ -2,7 +2,7 @@ import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 
 // Edge-safe (no Node-only APIs) — used by middleware as well as Node route handlers.
 
-export const ADMIN_COOKIE_NAME = "pulse_admin_token";
+export const ADMIN_COOKIE_NAME = "mili_admin_token";
 const TOKEN_TTL = "7d";
 
 function getSecretKey(): Uint8Array {
