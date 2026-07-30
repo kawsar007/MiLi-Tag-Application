@@ -4,13 +4,13 @@ export const site = {
   name: "MiLi Tag",
   tagline: "Earbuds tuned for real days, not showrooms",
   price: {
-    current: "৳ 3,290",
-    original: "৳ 4,990",
-    discountLabel: "34% off, today only",
+    current: "৳ 990",
+    original: "৳ 1,200",
+    discountLabel: "17.5% off, today only",
   },
   contact: {
     phone: "+880 1XXX-XXXXXX",
-    email: "hello@pulsepro.example",
+    email: "hello@militag.example",
     address: "House 12, Road 4, Banani, Dhaka 1213",
   },
   social: [
@@ -196,3 +196,26 @@ export const showcaseRows: ShowcaseRow[] = [
     imageSide: "left",
   },
 ];
+
+export type DeliveryArea = "inside_dhaka" | "outside_dhaka";
+
+export interface DeliveryOption {
+  value: DeliveryArea;
+  label: string;
+  charge: number;
+}
+
+export const deliveryOptions: DeliveryOption[] = [
+  { value: "inside_dhaka", label: "ঢাকার ভিতরে", charge: 80 },
+  { value: "outside_dhaka", label: "ঢাকার বাহিরে", charge: 150 },
+];
+
+export const deliveryCharges: Record<DeliveryArea, number> = deliveryOptions.reduce(
+  (acc, option) => {
+    acc[option.value] = option.charge;
+    return acc;
+  },
+  {} as Record<DeliveryArea, number>
+);
+
+export const defaultDeliveryArea: DeliveryArea = "inside_dhaka";

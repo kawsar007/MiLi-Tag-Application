@@ -1,33 +1,60 @@
+"use client";
+
+import OrderForm from "@/components/order/OrderForm";
+import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
-import Button from "@/components/ui/Button";
-import OrderForm from "@/components/order/OrderForm";
-import { site } from "@/constants/product";
+import { defaultDeliveryArea, DeliveryArea, site } from "@/constants/product";
+import { useState } from "react";
+import OrderSummaryCard from "../ui/OrderSummaryCard";
+
+// TODO: point this at your real product name field if one exists (e.g. site.product.name)
+const productName = "MiTag Duo — Smart Item Tracker";
+const productImage = "/mili1.webp";
 
 export default function Contact() {
-  return (
-    <section id="contact" className="bg-cloud py-20 sm:py-24">
-      <Container className="flex flex-col gap-14">
-        <div id="order" className="scroll-mt-24 rounded-3xl bg-indigo px-6 py-12 text-center text-white sm:px-12 sm:py-16">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-cyan-soft">
-            Ready when you are
-          </p>
-          <h2 className="mt-3 font-display text-2xl font-medium sm:text-3xl">
-            Order Pulse Pro — pay {site.price.current} when it arrives
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-white/80">
-            Fill in your details below, or call us directly — no account, no advance payment.
-          </p>
+  const [quantity, setQuantity] = useState(1);
+  const [deliveryArea, setDeliveryArea] = useState<DeliveryArea>(defaultDeliveryArea);
 
-          <div className="mx-auto mt-8 max-w-lg">
-            <OrderForm />
+  return (
+    <section id="contact" className="bg-cloud py-16 sm:py-20">
+      <Container className="flex flex-col gap-16">
+        <div id="order" className="scroll-mt-24 flex flex-col gap-8">
+          <div className="mx-auto flex max-w-xl flex-col items-center gap-3 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-cloud-line bg-cloud-card px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] text-indigo">
+              Ready when you are
+            </span>
+            <h2 className="font-display text-2xl font-medium text-ink sm:text-3xl">
+              Order {productName} — pay {site.price.current} when it arrives
+            </h2>
+            <p className="max-w-md text-sm text-steel">
+              Fill in your details below, or call us directly — no account, no advance payment.
+            </p>
           </div>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-8">
+            <div className="rounded-2xl border border-cloud-line bg-white p-6 shadow-sm sm:p-8">
+              <h3 className="mb-6 font-display text-lg font-semibold text-ink">
+                অর্ডার করতে ফর্মটি পূরণ করতে হবে
+              </h3>
+              <OrderForm onQuantityChange={setQuantity} onDeliveryAreaChange={setDeliveryArea} />
+            </div>
+
+            <OrderSummaryCard
+              productName={productName}
+              productImage={productImage}
+              unitPrice={site.price.current}
+              originalPrice={site.price.original}
+              quantity={quantity}
+              deliveryArea={deliveryArea}
+            />
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4">
             <Button href={`tel:${site.contact.phone.replace(/[^+\d]/g, "")}`} variant="secondary">
               Call {site.contact.phone}
             </Button>
-            <Button href={`mailto:${site.contact.email}`} variant="ghost" className="border-white/40 text-white hover:border-white hover:text-white">
+            <Button href={`mailto:${site.contact.email}`} variant="ghost">
               Email us
             </Button>
           </div>
