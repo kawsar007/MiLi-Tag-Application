@@ -20,11 +20,11 @@ export default function SectionTitle({
   return (
     <div className={`flex max-w-2xl flex-col gap-3 ${alignClass}`}>
       {eyebrow ? (
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-cyan">
+        <span className="section-badge">
           {eyebrow}
         </span>
       ) : null}
-      <h2 className={`font-display text-3xl font-medium leading-tight sm:text-4xl ${bodyTone}`}>
+      <h2 className={`heading-primary ${bodyTone}`}>
         {title}
       </h2>
       {description ? (

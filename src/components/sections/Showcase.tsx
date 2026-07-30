@@ -21,7 +21,7 @@ function ShowcaseRowItem({ row }: { row: ShowcaseRow }) {
       <div
         className={`order-1 flex min-h-[280px] flex-col justify-center gap-4 px-6 py-14 sm:min-h-[320px] sm:px-12 sm:py-16 lg:min-h-[420px] lg:px-16 ${textOrderClass}`}
       >
-        <h2 className="font-display text-3xl font-bold leading-tight text-ink sm:text-4xl lg:text-[2.75rem]">
+        <h2 className="heading-primary">
           {row.heading}
         </h2>
         <p className="max-w-md text-sm leading-relaxed text-steel sm:text-base">

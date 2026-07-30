@@ -142,14 +142,15 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <Container className="relative grid gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-28">
+      <Container className="relative grid gap-12 py-8 sm:py-10 lg:grid-cols-2 lg:items-center lg:py-14">
         <div className="order-2 flex flex-col items-start gap-6 lg:order-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cloud-line bg-cloud-card px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] text-indigo">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-indigo shadow-sm">
             {heroCopy.eyebrow}
           </span>
 
-          <h1 className="font-display text-4xl font-medium leading-[1.05] text-ink sm:text-5xl lg:text-6xl">
-            {heroCopy.title}
+          <h1 className="heading-primary text-ink">
+            {/* {heroCopy.title} */}
+            আপনার মূল্যবান জিনিস <span className="text-indigo">সর্বদা নিরাপদ রাখুন</span>
           </h1>
 
           <p className="max-w-lg text-lg text-ink/80">{heroCopy.subtitle}</p>

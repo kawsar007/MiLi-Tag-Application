@@ -234,11 +234,11 @@ export default function UseCases() {
         <div className="grid gap-12 lg:grid-cols-[380px_1fr] lg:items-start lg:gap-16">
           {/* Left: sticky intro + CTA */}
           <div className="flex flex-col gap-6 lg:sticky lg:top-24">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-cloud-line bg-cloud-card px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] text-indigo">
+            <span className="section-badge">
               ব্যবহার ক্ষেত্র
             </span>
 
-            <h2 className="border-l-4 border-indigo py-1 pl-5 font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+            <h2 className="border-l-4 border-indigo py-1 pl-5 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
               MiLi MiTag কি কি কাজে লাগবে?
             </h2>
 

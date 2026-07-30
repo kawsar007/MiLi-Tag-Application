@@ -32,7 +32,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <Button href="#order" variant="primary">
-            এখনই কিনুন
+            এখনই অর্ডার করুন
           </Button>
         </div>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
               </a>
             ))}
             <Button href="#order" variant="primary" className="mt-2 w-full">
-              এখনই কিনুন
+              এখনই অর্ডার করুন
             </Button>
           </Container>
         </div>
