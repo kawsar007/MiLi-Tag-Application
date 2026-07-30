@@ -101,7 +101,7 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
-      <Field label="Delivery area" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
+      <Field label="ডেলিভারি এলাকা" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
         <div role="radiogroup" aria-label="Delivery area" className="flex flex-col gap-3">
           {deliveryOptions.map((option) => {
             const isSelected = deliveryArea === option.value;
@@ -187,7 +187,7 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
       </Field>
 
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="District (optional)" htmlFor="district" error={fieldErrors.district}>
+        <Field label="জেলা (optional)" htmlFor="district" error={fieldErrors.district}>
           <input
             id="district"
             value={district}
@@ -199,7 +199,7 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
           />
         </Field>
 
-        <Field label="Quantity" htmlFor="quantity" error={fieldErrors.quantity}>
+        <Field label="পরিমাণ" htmlFor="quantity" error={fieldErrors.quantity}>
           <div className="flex items-stretch overflow-hidden rounded-lg border border-cloud-line bg-white transition-colors focus-within:border-indigo focus-within:ring-2 focus-within:ring-indigo/20">
             <button
               type="button"

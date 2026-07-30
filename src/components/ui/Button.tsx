@@ -12,7 +12,7 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary:
     "bg-indigo text-white hover:bg-indigo-deep shadow-[0_10px_30px_-10px_rgba(79,70,229,0.55)]",
   secondary:
-    "bg-ink text-cloud hover:bg-ink-soft border border-ink-line",
+    "bg-transparent border border-[#25D366]/40 rounded-full text-[#25D366] hover:bg-[#25D366]/10 active:bg-[#25D366]/20",
   ghost:
     "bg-transparent text-ink border border-ink-line hover:border-indigo hover:text-indigo",
 };

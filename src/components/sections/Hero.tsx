@@ -196,7 +196,7 @@ export default function Hero() {
                   transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
                 }}
               >
-                <Image
+                {/* <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
                   fill
@@ -205,6 +205,19 @@ export default function Hero() {
                     object-contain transition-opacity duration-300 ease-in-out
                     ${isTransitioning ? 'opacity-0' : 'opacity-100'}
                   `}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  quality={90}
+                  draggable={false}
+                /> */}
+                <Image
+                  src={activeImage.src}
+                  alt={activeImage.alt}
+                  fill
+                  priority
+                  className={`
+    object-cover transition-opacity duration-300 ease-in-out
+    ${isTransitioning ? "opacity-0" : "opacity-100"}
+  `}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   quality={90}
                   draggable={false}

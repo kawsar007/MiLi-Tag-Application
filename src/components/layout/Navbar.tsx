@@ -13,10 +13,32 @@ export default function Navbar() {
       <Container className="flex h-16 items-center justify-between sm:h-20">
         <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo text-sm font-bold text-white">
-            P
+            MT
           </span>
           {site.name}
         </a>
+        {/* <a
+          href="#top"
+          className="group flex items-center gap-3"
+        >
+          <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-cyan-500 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
+            <span className="font-display text-base font-bold tracking-tight text-white">
+              MT
+            </span>
+
+            <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-400" />
+          </div>
+
+          <div className="flex flex-col leading-none">
+            <span className="font-display text-xl font-bold tracking-tight text-ink">
+              MiLi Tag
+            </span>
+
+            <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-steel">
+              Smart Tracker
+            </span>
+          </div>
+        </a> */}
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {site.nav.map((link) => (
