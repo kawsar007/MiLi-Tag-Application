@@ -44,13 +44,13 @@ export default function FAQItem({ faq, defaultOpen = false }: FAQItemProps) {
       >
         <div className="overflow-hidden">
           {Array.isArray(faq.answer) ? (
-            <ul className="pb-5 pr-10 list-disc space-y-2 pl-5 text-sm leading-relaxed text-steel">
+            <ul className="pb-5 pr-10 list-disc space-y-2 pl-5 leading-relaxed text-md text-ink/80">
               {faq.answer.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
           ) : (
-            <p className="pb-5 pr-10 text-sm leading-relaxed text-steel">
+            <p className="pb-5 pr-10 leading-relaxed text-md text-ink/80">
               {faq.answer}
             </p>
           )}

@@ -263,7 +263,7 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
         type="submit"
         disabled={isSubmitting}
         aria-busy={isSubmitting}
-        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo/90 hover:shadow-lg active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none"
+        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo/90 hover:shadow-lg active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none cursor-pointer"
       >
         {isSubmitting ? (
           <>
@@ -271,7 +271,7 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
             Placing order…
           </>
         ) : (
-          `Confirm order — pay ${site.price.current} on delivery`
+          `অর্ডার করুন — ডেলিভারির সময় ${site.price.current} টাকা পরিশোধ করুন`
         )}
       </button>
     </form>
@@ -296,7 +296,7 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={htmlFor} className="text-xs font-medium uppercase tracking-wide text-steel">
+      <label htmlFor={htmlFor} className="text-xs font-bold uppercase tracking-wide text-ink/80">
         {label}
         {required ? <span className="ml-0.5 text-rose-500">*</span> : null}
       </label>

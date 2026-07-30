@@ -24,7 +24,7 @@ function ShowcaseRowItem({ row }: { row: ShowcaseRow }) {
         <h2 className="heading-primary">
           {row.heading}
         </h2>
-        <p className="max-w-md text-sm leading-relaxed text-steel sm:text-base">
+        <p className="max-w-md text-lg text-ink/80">
           {row.description}
         </p>
       </div>

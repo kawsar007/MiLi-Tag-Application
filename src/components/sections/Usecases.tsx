@@ -265,12 +265,25 @@ export default function UseCases() {
                   key={item.id}
                   className="group flex items-start gap-4 px-5 py-5 transition-colors duration-200 hover:bg-white sm:gap-6 sm:px-7 sm:py-6"
                 >
-                  <span className="pt-1 font-mono text-xs tabular-nums text-steel/70 sm:text-sm">
+                  {/* <span className="pt-1 font-mono text-xs tabular-nums text-steel/70 sm:text-sm">
+                    {String(index + 1).padStart(2, "0")}
+                  </span> */}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-indigo-200 bg-white font-mono text-xs font-semibold tabular-nums text-indigo transition-all duration-300 group-hover:border-indigo group-hover:bg-indigo group-hover:text-white">
                     {String(index + 1).padStart(2, "0")}
                   </span>
+                  {/* 
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 text-slate-700 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-indigo-200 group-hover:bg-gradient-to-br group-hover:from-indigo-50 group-hover:to-sky-50 group-hover:text-indigo group-hover:shadow-lg sm:h-12 sm:w-12">
+                    <UseCaseIconGlyph
+                      icon={item.icon}
+                      className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6"
+                    />
+                  </span> */}
 
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-cloud-line bg-cloud text-steel transition-colors duration-200 group-hover:border-indigo/30 group-hover:text-indigo sm:h-12 sm:w-12">
-                    <UseCaseIconGlyph icon={item.icon} className="h-5 w-5 sm:h-6 sm:w-6" />
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-indigo-100 bg-indigo-50 text-indigo shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-indigo group-hover:text-white group-hover:shadow-xl sm:h-14 sm:w-14">
+                    <UseCaseIconGlyph
+                      icon={item.icon}
+                      className="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
+                    />
                   </span>
 
                   <div className="flex flex-col gap-1 pt-0.5">

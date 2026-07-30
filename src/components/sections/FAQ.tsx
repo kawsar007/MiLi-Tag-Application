@@ -20,13 +20,12 @@ export default function FAQ() {
 
           <div className="w-full lg:w-1/2">
             <div className="relative rounded-2xl border border-cloud-line bg-cloud-card px-6 pb-8 pt-16 sm:px-8 sm:pt-20">
-              {/* decorative "hang tab" cutout, purely visual */}
               <div className="absolute left-1/2 top-0 h-12 w-32 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-ink sm:h-14 sm:w-36">
                 <div className="absolute left-1/2 top-1/2 h-5 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cloud-card sm:h-6 sm:w-16" />
               </div>
 
               <h3 className="text-center font-display text-xl font-semibold text-ink sm:text-2xl">
-                Included in the Box
+                বাক্সের ভেতরে যা যা আছে
               </h3>
 
               <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-8 sm:mt-10 sm:gap-x-10">
