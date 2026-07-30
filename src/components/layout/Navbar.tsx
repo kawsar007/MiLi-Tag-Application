@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import { site } from "@/constants/product";
+import { useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <Button href="#order" variant="primary">
-            Buy Now
+            এখনই কিনুন
           </Button>
         </div>
 
@@ -64,7 +64,7 @@ export default function Navbar() {
               </a>
             ))}
             <Button href="#order" variant="primary" className="mt-2 w-full">
-              Buy Now
+              এখনই কিনুন
             </Button>
           </Container>
         </div>

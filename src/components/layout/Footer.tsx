@@ -4,7 +4,7 @@ import { site } from "@/constants/product";
 export default function Footer() {
   return (
     <footer className="border-t border-ink-line bg-ink text-steel-soft">
-      <Container className="grid gap-10 py-14 sm:grid-cols-3">
+      {/* <Container className="grid gap-10 py-14 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
           <span className="flex items-center gap-2 font-display text-lg font-semibold text-cloud">
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo text-sm font-bold text-white">
@@ -43,7 +43,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
-      </Container>
+      </Container> */}
 
       <div className="border-t border-ink-line">
         <Container className="flex flex-col items-center justify-between gap-2 py-5 text-xs text-steel sm:flex-row">

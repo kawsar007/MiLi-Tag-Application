@@ -28,9 +28,9 @@ const SPAN_CLASSES: Record<GallerySize, string> = {
 };
 
 export default function ImageGallery({
-  eyebrow = "Gallery",
-  title = "A closer look, from every angle",
-  description = "Every shot below is here to show something real — the material, the finish, the day-to-day use.",
+  eyebrow = "গ্যালারি",
+  title = "সব দিক থেকে আরও কাছ থেকে দেখা যাক",
+  description = "নীচের প্রতিটি ছবি বাস্তব কিছু দেখানোর জন্যই দেওয়া হয়েছে — এর উপাদান, ফিনিশিং এবং দৈনন্দিন ব্যবহার।",
   images = galleryImages,
   id = "gallery",
 }: ImageGalleryProps) {

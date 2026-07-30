@@ -1,6 +1,4 @@
 import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
-import { sellingPoints } from "@/constants/product";
 import {
   CodIcon,
   DeliveryIcon,
@@ -8,13 +6,18 @@ import {
   QualityIcon,
   TrustedIcon,
 } from "@/components/ui/icons";
+import SectionTitle from "@/components/ui/SectionTitle";
+import { sellingPoints } from "@/constants/product";
+import { Gem } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 
-const iconMap: Record<string, (props: React.SVGProps<SVGSVGElement>) => React.JSX.Element> = {
+const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   quality: QualityIcon,
   cod: CodIcon,
   delivery: DeliveryIcon,
   trusted: TrustedIcon,
   easy: EasyIcon,
+  gem: Gem,
 };
 
 export default function WhyChooseUs() {
@@ -22,10 +25,10 @@ export default function WhyChooseUs() {
     <section id="why-us" className="bg-ink py-20 text-cloud sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionTitle
-          eyebrow="Why order from us"
-          title="Ordering shouldn't be the hard part"
+          eyebrow="www.orbi.com.bd থেকে কিনুন"
+          title="কেন আমাদের কাছ থেকে কিনবেন?"
           tone="dark"
-          description="Five things we hear back from customers most often — the reasons people finish checkout instead of closing the tab."
+          description="সেরা প্রোডাক্টের সাথে সেরা সার্ভিস - এটাই আমাদের প্রতিশ্রুতি"
         />
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,9 +1,7 @@
 "use client";
 
 import OrderForm from "@/components/order/OrderForm";
-import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
 import { defaultDeliveryArea, DeliveryArea, site } from "@/constants/product";
 import { useState } from "react";
 import OrderSummaryCard from "../ui/OrderSummaryCard";
@@ -24,11 +22,15 @@ export default function Contact() {
             <span className="inline-flex items-center gap-2 rounded-full border border-cloud-line bg-cloud-card px-3 py-1 font-mono text-xs uppercase tracking-[0.2em] text-indigo">
               Ready when you are
             </span>
-            <h2 className="font-display text-2xl font-medium text-ink sm:text-3xl">
+            {/* <h2 className="font-display text-2xl font-medium text-ink sm:text-3xl">
               Order {productName} — pay {site.price.current} when it arrives
+            </h2> */}
+            <h2 className="font-display text-2xl font-medium text-ink sm:text-3xl">
+              MiTag Duo — স্মার্ট আইটেম ট্র্যাকার — অর্ডার করুন, পণ্যটি হাতে পেলে ৳ ৯৯০ পরিশোধ করুন।
             </h2>
+
             <p className="max-w-md text-sm text-steel">
-              Fill in your details below, or call us directly — no account, no advance payment.
+              নিচে আপনার বিবরণ পূরণ করুন, অথবা সরাসরি আমাদের ফোন করুন — কোনো অ্যাকাউন্ট বা অগ্রিম পেমেন্টের প্রয়োজন নেই।
             </p>
           </div>
 
@@ -50,17 +52,17 @@ export default function Contact() {
             />
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* <div className="flex flex-wrap justify-center gap-4">
             <Button href={`tel:${site.contact.phone.replace(/[^+\d]/g, "")}`} variant="secondary">
               Call {site.contact.phone}
             </Button>
             <Button href={`mailto:${site.contact.email}`} variant="ghost">
               Email us
             </Button>
-          </div>
+          </div> */}
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-3">
+        {/* <div className="grid gap-10 sm:grid-cols-3">
           <SectionTitle eyebrow="Get in touch" title="Talk to a real person" align="left" />
 
           <div className="flex flex-col gap-2 sm:col-span-1">
@@ -78,7 +80,7 @@ export default function Contact() {
             <span className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-steel">Address</span>
             <span className="text-ink">{site.contact.address}</span>
           </div>
-        </div>
+        </div> */}
       </Container>
     </section>
   );

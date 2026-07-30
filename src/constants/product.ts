@@ -38,78 +38,89 @@ export const heroCopy = {
 export const sellingPoints: SellingPoint[] = [
   {
     id: "quality",
-    title: "Premium build",
-    description: "Aluminum-shell case, titanium-coated drivers, no plastic rattle.",
+    title: "৩ মাস ওয়ারেন্টি",
+    description: "যেকোনো ম্যানুফ্যাকচারিং ত্রুটিতে সম্পূর্ণ ওয়ারেন্টি কভার",
   },
   {
     id: "cod",
-    title: "Cash on Delivery",
-    description: "Check the box, pay the rider. No card, no advance payment.",
+    title: "১ মাস রিপ্লেসমেন্ট",
+    description: "সমস্যা থাকলে এক মাসের মধ্যে সম্পূর্ণ প্রতিস্থাপন",
   },
   {
     id: "delivery",
-    title: "Delivery in 24–72 hours",
-    description: "Dhaka within a day; nationwide within three.",
+    title: "দ্রুত ডেলিভারি",
+    description: "সারা বাংলাদেশে দ্রুততম সময়ে পৌঁছে যাবে",
   },
   {
     id: "trusted",
-    title: "12,000+ orders delivered",
-    description: "Rated 4.7/5 by customers across the country.",
+    title: "বন্ধুত্বপূর্ণ সাপোর্ট",
+    description: "যেকোনো সমস্যায় রেসপন্সিভ আফটার-সেলস সার্ভিস",
   },
   {
     id: "easy",
-    title: "One-field checkout",
-    description: "Name, number, address. That's the whole order form.",
+    title: "সারপ্রাইজ গিফট",
+    description: "অর্ডারের সাথে বিশেষ সারপ্রাইজ গিফট ও টেক টিপস",
+  },
+  {
+    id: "gem",
+    title: "এক্সক্লুসিভ প্রাইসিং",
+    description: "বিশেষ ছাড় ও আকর্ষণীয় মূল্যে পান",
   },
 ];
 
 export const faqs: FaqItem[] = [
   {
     id: "durability",
-    question: "Durability",
+    question: "স্থায়িত্ব",
     answer: [
-      "Premium ABS + PC construction for long-lasting durability.",
-      "Scratch-resistant matte finish.",
-      "Lightweight yet sturdy design.",
-      "Built for daily use and travel.",
+      "কার্যকরী তাপমাত্রা: -২০~৬০℃",
+      "জলরোধীতা: আইপি৬৭ জলরোধী",
     ],
   },
   {
     id: "design",
-    question: "Design",
+    question: "ডিজাইন",
     answer: [
-      "Modern ergonomic design for a comfortable fit.",
-      "Compact charging case that's easy to carry.",
-      "Minimalist appearance with a premium finish.",
+      "উপাদান: পিসি+এবিএস",
+      "পণ্যের ওজন (গ্রাম): ৯.৫",
+      "পণ্যের মাপ (দৈর্ঘ্য x উচ্চতা x প্রস্থ) (মিমি): ৩৮ * ৩৮ * ৯",
+      "কেসের ওজন (গ্রাম): ৩৩",
+      "কেসের মাপ (দৈর্ঘ্য x উচ্চতা x প্রস্থ) (মিমি): ৯০ * ৯০ * ১৯",
     ],
   },
   {
     id: "battery",
-    question: "Battery",
+    question: "ব্যাটারি",
     answer: [
-      "Up to 6 hours of playback on a single charge.",
-      "Up to 30 hours with the charging case.",
-      "Fast charging via USB-C.",
+      "ব্যাটারির আয়ু: ৮-১২ মাস",
+      "চার্জ করার সময়: চার্জিং সমর্থন করে না",
+      "ব্যাটারির ধরণ: লিথিয়াম ম্যাঙ্গানিজ ডাই অক্সাইড",
+      "ভোল্টেজ: ২.৬ভোল্ট~৩.৬ভোল্ট",
+      "পাওয়ার ব্যবহার: সর্বোচ্চ ৯.৫mA (অ্যাডভান্সড), গড় ২২uA (জোড়ায়)",
     ],
   },
   {
     id: "connectivity",
-    question: "Connectivity",
+    question: "সংযোগ",
     answer: [
-      "Bluetooth 5.3 for a stable connection.",
-      "Compatible with Android, iPhone, tablets, and laptops.",
-      "Quick auto-pairing after the first connection.",
+      "ব্লুটুথ সংস্করণ: বিএলই ৫.২",
+      "সনদপত্র: এফসিসি আইডি, সিই, আর ও এইচ এস, ইউকেসিএ, পিএসই, সিবি",
+      "সামঞ্জস্যপূর্ণ: অ্যান্ড্রয়েড ৯ বা তার উপরের সংস্করণ এবং সকল আইওএস ডিভাইসের সাথে সামঞ্জস্যপূর্ণ",
+      "ভৌত সংযোগ: চালু করতে একবার বোতাম চাপুন",
+      "ট্রান্সমিশন দূরত্ব: ৮০-১০০ মিটার (খোলা পরিবেশে)",
+      "বিএলই ট্রান্সমিট পাওয়ার: +৪ডিবিএম",
+      "অ্যাপ ইন্টারফেস: আইওএস (অ্যাপল ফাইন্ড মাই) অথবা অ্যান্ড্রয়েড (গুগল ফাইন্ড হাব)",
     ],
   },
   {
     id: "packing-list",
-    question: "Packing List",
+    question: "প্যাকিং তালিকা",
     answer: [
-      "1 × Pulse Pro Earbuds",
-      "1 × Charging Case",
-      "1 × USB-C Charging Cable",
-      "3 × Pairs of Silicone Ear Tips (S/M/L)",
-      "1 × User Manual",
+      "পণ্যের ওজন (গ্রাম): ৯.৫",
+      "কেসের মাপ (দৈর্ঘ্য x প্রস্থ x উচ্চতা) (মিমি): ৯০ * ৯০ * ৯০",
+      "বাইরের কার্টনের ওজন (কেজি): ৭",
+      "বাইরের কার্টনের মাপ (দৈর্ঘ্য x প্রস্থ x উচ্চতা) (মিমি): ৪৪৮ * ৩৪৫ * ২৭৫",
+      "বাইরের কার্টনে পরিমাণ (পিস): ১৮০",
     ],
   },
 ];
@@ -153,9 +164,9 @@ export type ShowcaseRow = {
 export const showcaseRows: ShowcaseRow[] = [
   {
     id: "never-lose-track",
-    heading: "Never Lose Track",
+    heading: "কখনো পথ হারাবেন না",
     description:
-      "MiTag Duo is a dual-system smart tracker for your keys, bags, luggage, and everyday essentials. Get leave-behind alerts and locate your items from your phone, so you never worry about leaving something behind.",
+      "MiTag Duo হলো আপনার চাবি, ব্যাগ, লাগেজ এবং দৈনন্দিন প্রয়োজনীয় জিনিসপত্রের জন্য একটি ডুয়াল-সিস্টেম স্মার্ট ট্র্যাকার। কোনো জিনিস ফেলে গেলে তার অ্যালার্ট পান এবং আপনার ফোন থেকেই সেটির অবস্থান খুঁজে বের করুন, ফলে কিছু ফেলে আসার দুশ্চিন্তা আপনাকে আর করতে হবে না।",
     image: {
       src: "/images/showcase/showcase1.webp",
       alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
@@ -164,9 +175,9 @@ export const showcaseRows: ShowcaseRow[] = [
   },
   {
     id: "works-with-your-phone",
-    heading: "Works with Your Phone",
+    heading: "আপনার ফোনের সাথে কাজ করে",
     description:
-      "MiTag Duo works with both Apple Find My and Google Find Hub, so you can track your essentials with the phone you already use.",
+      "MiTag Duo অ্যাপল ফাইন্ড মাই এবং গুগল ফাইন্ড হাব উভয়ের সাথেই কাজ করে, ফলে আপনি আপনার ব্যবহৃত ফোন দিয়েই প্রয়োজনীয় জিনিসপত্রের খোঁজ রাখতে পারেন।",
     image: {
       src: "/images/showcase/showcase2.webp",
       alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
@@ -175,9 +186,9 @@ export const showcaseRows: ShowcaseRow[] = [
   },
   {
     id: "built-for-everyday-life",
-    heading: "Built for Everyday Life",
+    heading: "দৈনন্দিন জীবনের জন্য নির্মিত",
     description:
-      "Rainy rides, crowded airports, coffee shop stops — MiLi is designed for everyday moments with IP67 water resistance and a replaceable battery built to last longer.",
+      "বৃষ্টিভেজা যাত্রা, ভিড়ে ঠাসা বিমানবন্দর, কফি শপে বিরতি — IP67 ওয়াটার রেজিস্ট্যান্স এবং দীর্ঘস্থায়ী বদলিযোগ্য ব্যাটারিসহ MiLi দৈনন্দিন মুহূর্তগুলোর জন্যই ডিজাইন করা হয়েছে।",
     image: {
       src: "/images/showcase/showcase3.webp",
       alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
@@ -186,9 +197,9 @@ export const showcaseRows: ShowcaseRow[] = [
   },
   {
     id: "alerts-before-you-forget",
-    heading: "Alerts Before You Forget",
+    heading: "ভুলে যাওয়ার আগে সতর্কবার্তা",
     description:
-      "Forgot your backpack at a café? Left your luggage behind at the airport? MiLi reminds you before small mistakes turn into stressful moments.",
+      "ক্যাফেতে আপনার ব্যাকপ্যাকটি ভুলে গেছেন? এয়ারপোর্টে লাগেজ ফেলে এসেছেন? ছোট ছোট ভুলগুলো বড় ধরনের মানসিক চাপের কারণ হওয়ার আগেই মিলি আপনাকে মনে করিয়ে দেয়।",
     image: {
       src: "/images/showcase/showcase4.webp",
       alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",

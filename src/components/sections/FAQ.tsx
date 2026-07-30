@@ -9,7 +9,7 @@ export default function FAQ() {
     <section id="faq" className="bg-cloud py-4 text-ink sm:py-6">
       <div className="border-t border-cloud-line" />
       <Container className="flex flex-col gap-10 py-16 sm:py-20">
-        <SectionTitle eyebrow="Before you order" title="Tech Specs" />
+        <SectionTitle title="প্রযুক্তিগত বৈশিষ্ট্য" />
 
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:gap-12">
           <div className="w-full lg:w-1/2">
