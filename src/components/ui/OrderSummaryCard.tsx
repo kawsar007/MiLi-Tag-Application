@@ -9,6 +9,8 @@ interface OrderSummaryCardProps {
   originalPrice?: string;
   quantity: number;
   deliveryArea: DeliveryArea;
+  isSubmitting: boolean;
+  orderConfirmed: boolean;
 }
 
 /** Best-effort numeric parse of a formatted currency string, for display math only. */
@@ -33,6 +35,8 @@ export default function OrderSummaryCard({
   originalPrice,
   quantity,
   deliveryArea,
+  isSubmitting,
+  orderConfirmed,
 }: OrderSummaryCardProps) {
   const parsedUnit = parseAmount(unitPrice);
   const deliveryChargeNumeric = deliveryCharges[deliveryArea];
@@ -44,6 +48,9 @@ export default function OrderSummaryCard({
 
   const deliveryDisplay = formatLikeSource(deliveryChargeNumeric, unitPrice);
 
+  // Single place where the payable total is assembled. If discounts or taxes are
+  // introduced later, add/subtract them here — the button below always reads from
+  // this one value, so it can never drift out of sync with the breakdown above it.
   const totalNumeric = subtotalNumeric !== null ? subtotalNumeric + deliveryChargeNumeric : null;
   const totalDisplay = totalNumeric !== null ? formatLikeSource(totalNumeric, unitPrice) : subtotalDisplay;
 
@@ -88,6 +95,29 @@ export default function OrderSummaryCard({
         </div>
       </dl>
 
+      {orderConfirmed ? (
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3.5 text-center text-sm font-medium text-emerald-700">
+          Order placed — thank you!
+        </div>
+      ) : (
+        <button
+          type="submit"
+          form="order-form"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-indigo px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo/90 hover:shadow-lg active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none sm:text-base"
+        >
+          {isSubmitting ? (
+            <>
+              <SpinnerIcon className="h-4 w-4 animate-spin" />
+              Placing order…
+            </>
+          ) : (
+            `Place order — pay ${totalDisplay}`
+          )}
+        </button>
+      )}
+
       <div className="flex items-center gap-3 rounded-xl border border-cloud-line p-4">
         <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-indigo">
           <span className="h-2.5 w-2.5 rounded-full bg-indigo" />
@@ -98,5 +128,14 @@ export default function OrderSummaryCard({
         </div>
       </div>
     </div>
+  );
+}
+
+function SpinnerIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx={12} cy={12} r={9} stroke="currentColor" strokeWidth={2.5} className="opacity-25" />
+      <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" />
+    </svg>
   );
 }

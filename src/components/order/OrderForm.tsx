@@ -1,7 +1,8 @@
 "use client";
 
-import { defaultDeliveryArea, DeliveryArea, deliveryOptions, site } from "@/constants/product";
+import { defaultDeliveryArea, DeliveryArea, deliveryOptions } from "@/constants/product";
 import { useEffect, useState, type FormEvent } from "react";
+
 
 interface FieldErrors {
   customerName?: string[];
@@ -18,9 +19,18 @@ interface OrderFormProps {
   onQuantityChange?: (quantity: number) => void;
   /** Optional: lets a parent mirror the live delivery area selection. */
   onDeliveryAreaChange?: (area: DeliveryArea) => void;
+  /** Optional: lets a parent mirror submitting state (e.g. to disable an external submit button). */
+  onSubmittingChange?: (isSubmitting: boolean) => void;
+  /** Optional: lets a parent know once the order is confirmed (id, or null if not yet confirmed). */
+  onOrderConfirmedChange?: (orderId: string | null) => void;
 }
 
-export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: OrderFormProps = {}) {
+export default function OrderForm({
+  onQuantityChange,
+  onDeliveryAreaChange,
+  onSubmittingChange,
+  onOrderConfirmedChange,
+}: OrderFormProps = {}) {
   const [customerName, setCustomerName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -43,6 +53,14 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
   useEffect(() => {
     onDeliveryAreaChange?.(deliveryArea);
   }, [deliveryArea, onDeliveryAreaChange]);
+
+  useEffect(() => {
+    onSubmittingChange?.(isSubmitting);
+  }, [isSubmitting, onSubmittingChange]);
+
+  useEffect(() => {
+    onOrderConfirmedChange?.(confirmedOrderId);
+  }, [confirmedOrderId, onOrderConfirmedChange]);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -100,7 +118,9 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
+    // id lets the submit button in OrderSummaryCard target this form via form="order-form",
+    // even though it renders in a different part of the tree.
+    <form id="order-form" onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
       <Field label="ডেলিভারি এলাকা" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
         <div role="radiogroup" aria-label="Delivery area" className="flex flex-col gap-3">
           {deliveryOptions.map((option) => {
@@ -255,25 +275,10 @@ export default function OrderForm({ onQuantityChange, onDeliveryAreaChange }: Or
       ) : null}
 
       <p className="text-xs leading-relaxed text-steel">
-        Your personal data will be used to process your order and support your experience
-        throughout this website.
+        আপনার ব্যক্তিগত তথ্য আপনার অর্ডার প্রক্রিয়া করতে এবং এই ওয়েবসাইট জুড়ে আপনার অভিজ্ঞতাকে সহায়তা করতে ব্যবহার করা হবে।
       </p>
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        aria-busy={isSubmitting}
-        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-indigo px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-indigo/90 hover:shadow-lg active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none cursor-pointer"
-      >
-        {isSubmitting ? (
-          <>
-            <SpinnerIcon className="h-4 w-4 animate-spin" />
-            Placing order…
-          </>
-        ) : (
-          `অর্ডার করুন — ডেলিভারির সময় ${site.price.current} টাকা পরিশোধ করুন`
-        )}
-      </button>
+      {/* Submit button intentionally lives in OrderSummaryCard (form="order-form" targets this form) */}
     </form>
   );
 }
@@ -325,15 +330,6 @@ function AlertIcon({ className }: { className?: string }) {
       <circle cx={12} cy={12} r={9} stroke="currentColor" strokeWidth={1.75} />
       <path d="M12 8v5" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" />
       <circle cx={12} cy={16} r={0.9} fill="currentColor" />
-    </svg>
-  );
-}
-
-function SpinnerIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx={12} cy={12} r={9} stroke="currentColor" strokeWidth={2.5} className="opacity-25" />
-      <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" />
     </svg>
   );
 }
