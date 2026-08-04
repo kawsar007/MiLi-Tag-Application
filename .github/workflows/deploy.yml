@@ -1,0 +1,53 @@
+name: Deploy Orbi Tracker
+
+on:
+  push:
+    branches:
+      - master
+
+concurrency:
+  group: orbi-tracker-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.2.0
+
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+
+          script: |
+            set -e
+
+            cd ~/orbi-tracker
+
+            echo "📥 Fetch latest code..."
+            git fetch origin
+            git reset --hard origin/master
+
+            echo "📦 Install dependencies..."
+            npm ci
+
+            echo "⚙️ Generate Prisma Client..."
+            npx prisma generate
+
+            echo "🗄️ Push database schema..."
+            npx prisma db push
+
+            echo "🏗️ Build application..."
+            npm run build
+
+            echo "🔄 Restart PM2..."
+            pm2 restart orbi-tag --update-env
+
+            echo "💾 Save PM2 state..."
+            pm2 save
+
+            echo "✅ Deployment completed successfully."
