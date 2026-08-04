@@ -1,7 +1,7 @@
 import type { FaqItem, ProductContent, SellingPoint } from "@/types";
 
 export const site = {
-  name: "MiLi Tag",
+  name: "Orbi MiLi Tag",
   tagline: "Earbuds tuned for real days, not showrooms",
   price: {
     current: "৳ 990",
@@ -28,7 +28,7 @@ export const site = {
 
 export const heroCopy = {
   eyebrow: "ক্যাশ অন ডেলিভারি, দেশব্যাপী",
-  title: "আপনার মূল্যবান জিনিস সর্বদা নিরাপদ রাখুন ।",
+  title: "আপনার মূল্যবান জিনিস সর্বদা নিরাপদ রাখুন",
   subtitle:
     "MiLi MiTag দিয়ে আপনার চাবি, ব্যাগ, মানিব্যাগ বা যেকোনো গুরুত্বপূর্ণ জিনিস ট্র্যাক করুন। Android 9+ ডিভাইসে Google Find My Device নেটওয়ার্কের মাধ্যমে সহজেই খুঁজে পান।",
   // description:

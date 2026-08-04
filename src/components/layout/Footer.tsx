@@ -6,10 +6,10 @@ const developerWhatsapp = "8801638600627";
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
-      <Container className="py-5">
-        <div className="flex flex-col items-center justify-between gap-4 text-sm text-slate-600 md:flex-row">
+      <Container className="py-3.5">
+        <div className="flex flex-col items-center justify-between gap-2.5 text-xs text-slate-500 sm:flex-row sm:gap-4 sm:text-sm">
           {/* Left */}
-          <span>
+          <span className="order-2 sm:order-1">
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </span>
 
@@ -18,7 +18,7 @@ export default function Footer() {
             href={`https://wa.me/${developerWhatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-colors hover:bg-emerald-50"
+            className="group order-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1 transition-colors hover:bg-emerald-50 sm:order-2"
           >
             <span>Made with</span>
 
@@ -34,12 +34,12 @@ export default function Footer() {
           </a>
 
           {/* Right */}
-          <span className="font-medium">
+          <span className="order-3 font-medium text-slate-600">
             ক্যাশ অন ডেলিভারি • ঢাকা ও সারা বাংলাদেশ
           </span>
         </div>
       </Container>
-    </footer>
+    </footer >
   );
 }
 
