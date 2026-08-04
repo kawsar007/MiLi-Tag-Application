@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
     <section id="why-us" className="bg-ink py-20 text-cloud sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionTitle
-          eyebrow="www.orbi.com.bd থেকে কিনুন"
+          eyebrow="www.orbigpstracker.com থেকে কিনুন"
           title="কেন আমাদের কাছ থেকে কিনবেন?"
           tone="dark"
           description="সেরা প্রোডাক্টের সাথে সেরা সার্ভিস - এটাই আমাদের প্রতিশ্রুতি"
