@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
             P
           </span>
           <div className="flex flex-col items-center gap-1">
-            <h1 className="font-display text-xl font-medium text-ink">MiLi Tag Admin</h1>
+            <h1 className="font-display text-xl font-medium text-ink">Orbi MiLi MiTag Admin</h1>
             <p className="text-sm text-steel">Sign in to manage orders.</p>
           </div>
         </div>

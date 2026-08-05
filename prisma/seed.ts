@@ -10,8 +10,8 @@ async function main() {
     update: {},
     create: {
       slug: PRIMARY_PRODUCT_SLUG,
-      name: "MiLi Tag Tracking Device",
-      priceCents: 329000, // ৳3,290.00, stored as paisa
+      name: "Orbi MiLi MiTag Tracking Device",
+      priceCents: 99000, // ৳990.00, stored as paisa
       isActive: true,
     },
   });

@@ -35,7 +35,7 @@ export default function AdminTopbar() {
 
   return (
     <header className="flex h-16 items-center justify-between border-b border-cloud-line bg-cloud-card px-5 sm:px-8">
-      <span className="font-display text-lg font-medium text-ink">MiLi Tag Admin</span>
+      <span className="font-display text-lg font-medium text-ink">Orbi MiLi MiTag Admin</span>
       <div className="flex items-center gap-4">
         {admin ? (
           <span className="hidden text-sm text-steel sm:inline">

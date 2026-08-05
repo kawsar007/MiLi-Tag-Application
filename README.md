@@ -1,4 +1,4 @@
-# Pulse Pro — COD Landing Page + Order Backend
+# Orbi MiLi MiTag Landing Page + Order Backend
 
 A production-ready, single-product Cash-on-Delivery storefront: a Next.js landing page with a real order form, a MySQL-backed order pipeline, and a JWT-protected admin dashboard.
 
