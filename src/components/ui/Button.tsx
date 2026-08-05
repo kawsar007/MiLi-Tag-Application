@@ -14,7 +14,8 @@ const variantClasses: Record<ButtonVariant, string> = {
   secondary:
     "bg-transparent border border-[#25D366]/40 rounded-full text-[#25D366] hover:bg-[#25D366]/10 active:bg-[#25D366]/20",
   ghost:
-    "bg-transparent text-ink border border-ink-line hover:border-indigo hover:text-indigo",
+    // "bg-transparent text-ink border border-ink-line hover:border-indigo hover:text-indigo",
+    "bg-transparent text-indigo border border-indigo hover:border-indigo hover:text-indigo",
 };
 
 export default function Button({

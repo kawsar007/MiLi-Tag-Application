@@ -68,6 +68,49 @@ export const sellingPoints: SellingPoint[] = [
   },
 ];
 
+export const whyOrbiMili: SellingPoint[] = [
+  {
+    id: "location",
+    title: "লোকেশন ট্র্যাকিং",
+    description: "Google Find My Device নেটওয়ার্কের মাধ্যমে যেকোনো জায়গা থেকে ট্র্যাক করুন",
+  },
+  {
+    id: "bluetooth",
+    title: "Bluetooth 5.2",
+    description: "৮০-১০০ মিটার রেঞ্জে দ্রুত ও স্থিতিশীল সংযোগ",
+  },
+  {
+    id: "battery",
+    title: "দীর্ঘ ব্যাটারি লাইফ",
+    description: "একটি CR2032 ব্যাটারিতে ৬-৮ মাস ব্যবহার করুন",
+  },
+  {
+    id: "waterproof",
+    title: "IPX67 ওয়াটারপ্রুফ",
+    description: "ধুলো ও পানি প্রতিরোধী ডিজাইন",
+  },
+  {
+    id: "android",
+    title: "Android সাপোর্ট",
+    description: "Android 9 বা তার উপরের সকল ডিভাইসে কাজ করে",
+  },
+  {
+    id: "button",
+    title: "ওয়ান-বাটন অ্যাক্টিভেশন",
+    description: "একটি বাটন চেপে সহজেই চালু করুন",
+  },
+  {
+    id: "temperature",
+    title: "এক্সট্রিম টেম্পারেচার",
+    description: "-২০°C থেকে +৬০°C পর্যন্ত কাজ করে",
+  },
+  {
+    id: "certified",
+    title: "সার্টিফায়েড কোয়ালিটি",
+    description: "FCC, CE, ROHS, UKCA, PSE, CB সার্টিফাইড",
+  },
+];
+
 export const faqs: FaqItem[] = [
   {
     id: "durability",

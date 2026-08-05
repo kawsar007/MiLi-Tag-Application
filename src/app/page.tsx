@@ -10,6 +10,7 @@ import LostToFoundBanner from "@/components/sections/LostToFoundBanner";
 import FeatureShowcase from "@/components/sections/Showcase";
 import UseCases from "@/components/sections/Usecases";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import WhyMiliTag from "@/components/sections/WhyMiliTag";
 
 export default function Home() {
   return (
@@ -29,15 +30,20 @@ export default function Home() {
           <FeatureShowcase />
         </FadeUp>
         {/* <ProductDetails /> */}
-        <FadeUp>
-          <WhyChooseUs />
-        </FadeUp>
+
         {/* <FadeIn>
           <ImageGallery />
         </FadeIn> */}
+        <FadeIn>
+          <WhyMiliTag />
+        </FadeIn>
+
 
         <FadeUp>
           <FAQ />
+        </FadeUp>
+        <FadeUp>
+          <WhyChooseUs />
         </FadeUp>
         <FadeUp>
           <Contact />

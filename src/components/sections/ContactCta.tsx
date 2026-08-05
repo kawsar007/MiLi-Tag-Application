@@ -7,10 +7,23 @@ export default function ContactCta() {
 
   return (
     <div className="flex flex-col gap-3 pt-2">
-      <Button href="#order" variant="primary" className="w-full justify-center">
-        <span className="inline-flex items-center justify-center gap-2">
+      {/* Primary CTA – subtle continuous attention animation */}
+      <Button
+        href="#order"
+        variant="primary"
+        className="
+          relative w-full justify-center
+          animate-cta-pulse
+          transition-all duration-300 ease-out
+          hover:-translate-y-0.5 hover:scale-[1.02]
+          hover:shadow-lg hover:brightness-105
+          focus-visible:ring-2 focus-visible:ring-offset-2
+          motion-reduce:animate-none
+        "
+      >
+        <span className="inline-flex items-center justify-center gap-2 relative z-10">
           <PhoneIcon className="h-4 w-4" />
-          অর্ডার করতে চাই
+          এখনই অর্ডার করুন
         </span>
       </Button>
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function LostToFoundBanner() {
   return (
     <section className="bg-cloud">
-      <Container className="flex justify-center py-3 sm:py-4">
+      <Container className="flex justify-center py-3 sm:py-4 mb-6">
         <Link
           href="#product"
           aria-label="See how MiTag turns lost items into found ones"

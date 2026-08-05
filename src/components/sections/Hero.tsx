@@ -476,10 +476,10 @@ export default function Hero() {
             আপনার মূল্যবান জিনিস <span className="text-indigo">সর্বদা নিরাপদ রাখুন</span>
           </h1>
 
-          <p className="max-w-lg text-lg text-ink/80">{heroCopy.subtitle}</p>
+          <p className="max-w-lg text-md text-ink/80">{heroCopy.subtitle}</p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <span className="font-display text-2xl font-semibold text-ink">
+            <span className="font-display text-4xl font-bold text-ink">
               {site.price.current}
             </span>
             <span className="text-sm text-steel line-through">{site.price.original}</span>
