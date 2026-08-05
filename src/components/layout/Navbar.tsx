@@ -3,6 +3,7 @@
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import { site } from "@/constants/product";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -11,34 +12,34 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-cloud-line bg-cloud/85 backdrop-blur">
       <Container className="flex h-16 items-center justify-between sm:h-20">
-        <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+        {/* <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
           <span className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo text-sm font-bold text-white">
             MT
           </span>
           {site.name}
-        </a>
-        {/* <a
-          href="#top"
-          className="group flex items-center gap-3"
-        >
-          <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-cyan-500 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg">
-            <span className="font-display text-base font-bold tracking-tight text-white">
-              MT
-            </span>
-
-            <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-400" />
-          </div>
-
-          <div className="flex flex-col leading-none">
-            <span className="font-display text-xl font-bold tracking-tight text-ink">
-              MiLi Tag
-            </span>
-
-            <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-steel">
-              Smart Tracker
-            </span>
-          </div>
         </a> */}
+        <Link
+          href="#top"
+          className="group flex items-center gap-3 font-display transition-transform duration-300 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-current focus-visible:outline-offset-2 focus-visible:rounded"
+        >
+          {/* Logo Mark */}
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo to-indigo/80 text-sm font-bold text-white shadow-md shadow-indigo/20 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-indigo/30 group-hover:scale-105">
+            <span className="relative z-10">MT</span>
+          </div>
+
+          {/* Brand Name */}
+          <div className="flex items-center gap-1">
+            <span className="text-lg font-semibold transition-colors duration-300 text-indigo">
+              Orbi
+            </span>
+            <span className="text-lg font-light text-ink/60">
+              MiLi
+            </span>
+            <span className="text-lg font-semibold transition-colors duration-300 text-indigo/80">
+              MiTag
+            </span>
+          </div>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {site.nav.map((link) => (
