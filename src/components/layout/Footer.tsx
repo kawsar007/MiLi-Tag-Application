@@ -15,10 +15,11 @@ export default function Footer() {
 
           {/* Center */}
           <a
-            href={`https://wa.me/${developerWhatsapp}`}
+            href="https://kawsar-portfolio-latest.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group order-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1 transition-colors hover:bg-emerald-50 sm:order-2"
+            aria-label="Visit the developer's portfolio"
+            className="text-xs group order-1 inline-flex items-center gap-1.5 rounded-full px-3 py-1 transition-colors hover:bg-slate-100 sm:order-2"
           >
             <span>Made with</span>
 
@@ -28,8 +29,8 @@ export default function Footer() {
 
             <span>by</span>
 
-            <span className="font-semibold text-slate-900 transition-colors group-hover:text-emerald-600">
-              Kawsar
+            <span className="font-semibold text-slate-900 transition-colors group-hover:text-cyan-600">
+              the Developer
             </span>
           </a>
 
