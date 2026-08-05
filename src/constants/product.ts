@@ -5,8 +5,8 @@ export const site = {
   tagline: "Earbuds tuned for real days, not showrooms",
   price: {
     current: "৳ 990",
-    original: "৳ 1,200",
-    discountLabel: "17.5% off, today only",
+    original: "৳ 1,150",
+    discountLabel: "Save ৳ 160",
   },
   contact: {
     phone: "+880 1XXX-XXXXXX",
@@ -71,56 +71,56 @@ export const sellingPoints: SellingPoint[] = [
 export const faqs: FaqItem[] = [
   {
     id: "durability",
-    question: "স্থায়িত্ব",
+    question: "Durability",
     answer: [
-      "কার্যকরী তাপমাত্রা: -২০~৬০℃",
-      "জলরোধীতা: আইপি৬৭ জলরোধী",
+      "Working Temperature: -20~60℃",
+      "Waterproofness: IP67 Waterproof",
     ],
   },
   {
     id: "design",
-    question: "ডিজাইন",
+    question: "Design",
     answer: [
-      "উপাদান: পিসি+এবিএস",
-      "পণ্যের ওজন (গ্রাম): ৯.৫",
-      "পণ্যের মাপ (দৈর্ঘ্য x উচ্চতা x প্রস্থ) (মিমি): ৩৮ * ৩৮ * ৯",
-      "কেসের ওজন (গ্রাম): ৩৩",
-      "কেসের মাপ (দৈর্ঘ্য x উচ্চতা x প্রস্থ) (মিমি): ৯০ * ৯০ * ১৯",
+      "Materials: PC+ABS",
+      "Product Weight (grams): 9.5",
+      "Product Dimensions (Length x Height x Width) (mm): 38 * 38 * 9",
+      "Case Weight (grams): 33",
+      "Case Dimensions (Length x Height x Width) (mm): 90 * 90 * 19",
     ],
   },
   {
     id: "battery",
-    question: "ব্যাটারি",
+    question: "Battery",
     answer: [
-      "ব্যাটারির আয়ু: ৮-১২ মাস",
-      "চার্জ করার সময়: চার্জিং সমর্থন করে না",
-      "ব্যাটারির ধরণ: লিথিয়াম ম্যাঙ্গানিজ ডাই অক্সাইড",
-      "ভোল্টেজ: ২.৬ভোল্ট~৩.৬ভোল্ট",
-      "পাওয়ার ব্যবহার: সর্বোচ্চ ৯.৫mA (অ্যাডভান্সড), গড় ২২uA (জোড়ায়)",
+      "Battery Hours: 8-12 Months",
+      "Charging Time: Does not support charging",
+      "Battery Type: Lithium Manganese Dioxide",
+      "Voltage: 2.6V~3.6V",
+      "Power Consumption: Up to 9.5mA (Advanced), Average 22uA (Pair)",
     ],
   },
   {
     id: "connectivity",
-    question: "সংযোগ",
+    question: "Connectivity",
     answer: [
-      "ব্লুটুথ সংস্করণ: বিএলই ৫.২",
-      "সনদপত্র: এফসিসি আইডি, সিই, আর ও এইচ এস, ইউকেসিএ, পিএসই, সিবি",
-      "সামঞ্জস্যপূর্ণ: অ্যান্ড্রয়েড ৯ বা তার উপরের সংস্করণ এবং সকল আইওএস ডিভাইসের সাথে সামঞ্জস্যপূর্ণ",
-      "ভৌত সংযোগ: চালু করতে একবার বোতাম চাপুন",
-      "ট্রান্সমিশন দূরত্ব: ৮০-১০০ মিটার (খোলা পরিবেশে)",
-      "বিএলই ট্রান্সমিট পাওয়ার: +৪ডিবিএম",
-      "অ্যাপ ইন্টারফেস: আইওএস (অ্যাপল ফাইন্ড মাই) অথবা অ্যান্ড্রয়েড (গুগল ফাইন্ড হাব)",
+      "Bluetooth Version: BLE 5.2",
+      "Certifications: FCC ID, CE, RoHS, UL, PSB, CB",
+      "Compatibility: Android 9 or higher and all iOS devices",
+      "Physical Connection: Press the button once to turn it on",
+      "Transmission Range: 80-100 meters (in open environment)",
+      "BLE Transmission Power: +4dBm",
+      "App Interface: iOS (Apple Find My) or Android (Google Find Hub)",
     ],
   },
   {
     id: "packing-list",
-    question: "প্যাকিং তালিকা",
+    question: "Packing List",
     answer: [
-      "পণ্যের ওজন (গ্রাম): ৯.৫",
-      "কেসের মাপ (দৈর্ঘ্য x প্রস্থ x উচ্চতা) (মিমি): ৯০ * ৯০ * ৯০",
-      "বাইরের কার্টনের ওজন (কেজি): ৭",
-      "বাইরের কার্টনের মাপ (দৈর্ঘ্য x প্রস্থ x উচ্চতা) (মিমি): ৪৪৮ * ৩৪৫ * ২৭৫",
-      "বাইরের কার্টনে পরিমাণ (পিস): ১৮০",
+      "Product Weight (grams): 9.5",
+      "Case Dimensions (Length x Height x Width) (mm): 90 * 90 * 90",
+      "Outer Carton Weight (kg): 7",
+      "Outer Carton Dimensions (Length x Height x Width) (mm): 448 * 345 * 275",
+      "Quantity in Outer Carton (pcs): 180",
     ],
   },
 ];
@@ -218,7 +218,7 @@ export interface DeliveryOption {
 
 export const deliveryOptions: DeliveryOption[] = [
   { value: "inside_dhaka", label: "ঢাকার ভিতরে", charge: 80 },
-  { value: "outside_dhaka", label: "ঢাকার বাহিরে", charge: 150 },
+  { value: "outside_dhaka", label: "ঢাকার বাহিরে", charge: 120 },
 ];
 
 export const deliveryCharges: Record<DeliveryArea, number> = deliveryOptions.reduce(

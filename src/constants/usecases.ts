@@ -17,6 +17,30 @@ export type UseCase = {
 
 export const useCases: UseCase[] = [
   {
+    id: "bike",
+    icon: "bike",
+    title: "বাইক/সাইকেল নিরাপদ",
+    description: "পার্কিং-এ রাখা বাইক বা সাইকেলে MiTag লাগান",
+  },
+  {
+    id: "school-bag",
+    icon: "child",
+    title: "শিশুর স্কুল ব্যাগে",
+    description: "বাচ্চার স্কুল ব্যাগে রাখুন, নিরাপত্তা নিশ্চিত করুন",
+  },
+  {
+    id: "car",
+    icon: "car",
+    title: "গাড়িতে রাখুন",
+    description: "গাড়ি খুঁজে পেতে বা চুরি হলে ট্র্যাক করুন",
+  },
+  {
+    id: "pet",
+    icon: "paw",
+    title: "পোষা প্রাণীর কলারে",
+    description: "আপনার প্রিয় পোষা প্রাণীকে সবসময় নজরে রাখুন",
+  },
+  {
     id: "keys",
     icon: "key",
     title: "চাবি ট্র্যাক করুন",
@@ -39,29 +63,5 @@ export const useCases: UseCase[] = [
     icon: "luggage",
     title: "ভ্রমণে লাগেজ ট্র্যাক",
     description: "এয়ারপোর্টে বা ট্রেনে লাগেজ হারানোর ভয় নেই",
-  },
-  {
-    id: "bike",
-    icon: "bike",
-    title: "বাইক/সাইকেল নিরাপদ",
-    description: "পার্কিং-এ রাখা বাইক বা সাইকেলে MiTag লাগান",
-  },
-  {
-    id: "pet",
-    icon: "paw",
-    title: "পোষা প্রাণীর কলারে",
-    description: "আপনার প্রিয় পোষা প্রাণীকে সবসময় নজরে রাখুন",
-  },
-  {
-    id: "school-bag",
-    icon: "child",
-    title: "শিশুর স্কুল ব্যাগে",
-    description: "বাচ্চার স্কুল ব্যাগে রাখুন, নিরাপত্তা নিশ্চিত করুন",
-  },
-  {
-    id: "car",
-    icon: "car",
-    title: "গাড়িতে রাখুন",
-    description: "গাড়ি খুঁজে পেতে বা চুরি হলে ট্র্যাক করুন",
-  },
+  }
 ];

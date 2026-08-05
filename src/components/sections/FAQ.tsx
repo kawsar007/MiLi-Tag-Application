@@ -9,7 +9,7 @@ export default function FAQ() {
     <section id="faq" className="bg-cloud py-4 text-ink sm:py-6">
       <div className="border-t border-cloud-line" />
       <Container className="flex flex-col gap-10 py-16 sm:py-20">
-        <SectionTitle title="প্রযুক্তিগত বৈশিষ্ট্য" />
+        <SectionTitle title="Tech Specs" />
 
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:gap-12">
           <div className="w-full lg:w-1/2">
@@ -24,8 +24,8 @@ export default function FAQ() {
                 <div className="absolute left-1/2 top-1/2 h-5 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cloud-card sm:h-6 sm:w-16" />
               </div>
 
-              <h3 className="text-center font-display text-xl font-semibold text-ink sm:text-2xl">
-                বাক্সের ভেতরে যা যা আছে
+              <h3 className="text-center font-display text-xl font-bold text-ink sm:text-2xl">
+                Included in the Box
               </h3>
 
               <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-8 sm:mt-10 sm:gap-x-10">

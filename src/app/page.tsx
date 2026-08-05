@@ -6,7 +6,6 @@ import Navbar from "@/components/layout/Navbar";
 import Contact from "@/components/sections/Contact";
 import FAQ from "@/components/sections/FAQ";
 import Hero from "@/components/sections/Hero";
-import ImageGallery from "@/components/sections/ImageGallery";
 import LostToFoundBanner from "@/components/sections/LostToFoundBanner";
 import FeatureShowcase from "@/components/sections/Showcase";
 import UseCases from "@/components/sections/Usecases";
@@ -33,9 +32,9 @@ export default function Home() {
         <FadeUp>
           <WhyChooseUs />
         </FadeUp>
-        <FadeIn>
+        {/* <FadeIn>
           <ImageGallery />
-        </FadeIn>
+        </FadeIn> */}
 
         <FadeUp>
           <FAQ />
