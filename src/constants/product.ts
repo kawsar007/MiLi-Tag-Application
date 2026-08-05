@@ -164,9 +164,9 @@ export type ShowcaseRow = {
 export const showcaseRows: ShowcaseRow[] = [
   {
     id: "never-lose-track",
-    heading: "কখনো পথ হারাবেন না",
+    heading: "Never Lose Track",
     description:
-      "MiTag Duo হলো আপনার চাবি, ব্যাগ, লাগেজ এবং দৈনন্দিন প্রয়োজনীয় জিনিসপত্রের জন্য একটি ডুয়াল-সিস্টেম স্মার্ট ট্র্যাকার। কোনো জিনিস ফেলে গেলে তার অ্যালার্ট পান এবং আপনার ফোন থেকেই সেটির অবস্থান খুঁজে বের করুন, ফলে কিছু ফেলে আসার দুশ্চিন্তা আপনাকে আর করতে হবে না।",
+      "MiTag Duo is a dual-system smart tracker for your keys, bags, luggage, and everyday essentials. Get leave-behind alerts and locate your items from your phone, so you never worry about leaving something behind.",
     image: {
       src: "/images/showcase/showcase1.webp",
       alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
@@ -175,9 +175,9 @@ export const showcaseRows: ShowcaseRow[] = [
   },
   {
     id: "works-with-your-phone",
-    heading: "আপনার ফোনের সাথে কাজ করে",
+    heading: "Works with Your Phone",
     description:
-      "MiTag Duo অ্যাপল ফাইন্ড মাই এবং গুগল ফাইন্ড হাব উভয়ের সাথেই কাজ করে, ফলে আপনি আপনার ব্যবহৃত ফোন দিয়েই প্রয়োজনীয় জিনিসপত্রের খোঁজ রাখতে পারেন।",
+      "MiTag Duo works with both Apple Find My and Google Find Hub, so you can track your essentials with the phone you already use.",
     image: {
       src: "/images/showcase/showcase2.webp",
       alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
@@ -186,9 +186,9 @@ export const showcaseRows: ShowcaseRow[] = [
   },
   {
     id: "built-for-everyday-life",
-    heading: "দৈনন্দিন জীবনের জন্য নির্মিত",
+    heading: "Built for Everyday Life",
     description:
-      "বৃষ্টিভেজা যাত্রা, ভিড়ে ঠাসা বিমানবন্দর, কফি শপে বিরতি — IP67 ওয়াটার রেজিস্ট্যান্স এবং দীর্ঘস্থায়ী বদলিযোগ্য ব্যাটারিসহ MiLi দৈনন্দিন মুহূর্তগুলোর জন্যই ডিজাইন করা হয়েছে।",
+      "Rainy rides, crowded airports, coffee shop stops — MiLi is designed for everyday moments with IP67 water resistance and a replaceable battery built to last longer.",
     image: {
       src: "/images/showcase/showcase3.webp",
       alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
@@ -197,9 +197,9 @@ export const showcaseRows: ShowcaseRow[] = [
   },
   {
     id: "alerts-before-you-forget",
-    heading: "ভুলে যাওয়ার আগে সতর্কবার্তা",
+    heading: "Alerts Before You Forget",
     description:
-      "ক্যাফেতে আপনার ব্যাকপ্যাকটি ভুলে গেছেন? এয়ারপোর্টে লাগেজ ফেলে এসেছেন? ছোট ছোট ভুলগুলো বড় ধরনের মানসিক চাপের কারণ হওয়ার আগেই মিলি আপনাকে মনে করিয়ে দেয়।",
+      "Forgot your backpack at a cafe? Left your luggage behind at the airport? MiLi reminds you before small mistakes turn into stressful moments.",
     image: {
       src: "/images/showcase/showcase4.webp",
       alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
