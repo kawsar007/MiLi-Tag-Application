@@ -45,7 +45,7 @@ jobs:
             npm run build
 
             echo "🔄 Restart PM2..."
-            pm2 restart orbi-tag --update-env
+            pm2 restart orbi-tracker --update-env
 
             echo "💾 Save PM2 state..."
             pm2 save
