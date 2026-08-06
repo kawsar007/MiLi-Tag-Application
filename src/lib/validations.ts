@@ -43,3 +43,31 @@ export const orderStatusUpdateSchema = z.object({
 });
 
 export type OrderStatusUpdateInput = z.infer<typeof orderStatusUpdateSchema>;
+
+
+// No password-strength policy existed anywhere in the project before this
+// (the login schema's min(6) is just a minimum length for the *login*
+// field, not a creation/change policy) — this is a new policy, applied
+// only to password changes. Login itself is untouched.
+export const passwordPolicySchema = z
+  .string()
+  .min(8, "Password must be at least 8 characters")
+  .regex(/[A-Za-z]/, "Password must include at least one letter")
+  .regex(/\d/, "Password must include at least one number");
+
+export const changePasswordSchema = z
+  .object({
+    currentPassword: z.string().min(1, "Enter your current password"),
+    newPassword: passwordPolicySchema,
+    confirmNewPassword: z.string().min(1, "Confirm your new password"),
+  })
+  .refine((data) => data.newPassword === data.confirmNewPassword, {
+    message: "New password and confirmation do not match",
+    path: ["confirmNewPassword"],
+  })
+  .refine((data) => data.newPassword !== data.currentPassword, {
+    message: "New password must be different from your current password",
+    path: ["newPassword"],
+  });
+
+export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
