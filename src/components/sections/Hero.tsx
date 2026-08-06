@@ -482,7 +482,7 @@ export default function Hero() {
             price row, etc.) force the track wider than the viewport on mobile,
             which is the root cause of the left-shift — see chat explanation. */}
         <div className="order-2 flex min-w-0 flex-col items-start gap-6 lg:order-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-indigo shadow-sm">
+          <span className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 font-mono text-xs font-semibold uppercase text-indigo shadow-sm">
             {heroCopy.eyebrow}
           </span>
 
@@ -490,7 +490,7 @@ export default function Hero() {
             আপনার মূল্যবান জিনিস <span className="text-indigo">সর্বদা নিরাপদ রাখুন</span>
           </h1>
 
-          <p className="max-w-lg text-md text-ink/80">{heroCopy.subtitle}</p>
+          <p className="max-w-lg text-md font-medium text-ink/80">{heroCopy.subtitle}</p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <span className="font-display text-4xl font-bold text-ink">
