@@ -10,7 +10,7 @@ export const orderCreateSchema = z.object({
     .regex(bdPhoneRegex, "Enter a valid Bangladeshi mobile number, e.g. 01XXXXXXXXX"),
   address: z.string().trim().min(10, "Add a complete delivery address").max(500),
   district: z.string().trim().max(80).optional().or(z.literal("")),
-  quantity: z.coerce.number().int().min(1).max(10).default(1),
+  quantity: z.coerce.number().int().min(1).max(100).default(1),
   note: z.string().trim().max(300).optional().or(z.literal("")),
 });
 

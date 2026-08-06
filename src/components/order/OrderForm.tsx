@@ -223,7 +223,7 @@ export default function OrderForm({
           <div className="flex items-stretch overflow-hidden rounded-lg border border-cloud-line bg-white transition-colors focus-within:border-indigo focus-within:ring-2 focus-within:ring-indigo/20">
             <button
               type="button"
-              onClick={() => setQuantity((q) => Math.min(10, Math.max(1, q - 1)))}
+              onClick={() => setQuantity((q) => Math.min(100, Math.max(1, q - 1)))}
               aria-label="Decrease quantity"
               className="flex w-10 shrink-0 items-center justify-center text-steel transition-colors hover:bg-cloud hover:text-ink"
             >
@@ -233,7 +233,7 @@ export default function OrderForm({
               id="quantity"
               type="number"
               min={1}
-              max={10}
+              max={100}
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
               aria-invalid={!!fieldErrors.quantity}
@@ -242,14 +242,20 @@ export default function OrderForm({
             />
             <button
               type="button"
-              onClick={() => setQuantity((q) => Math.min(10, Math.max(1, q + 1)))}
+              onClick={() => setQuantity((q) => Math.min(100, Math.max(1, q + 1)))}
               aria-label="Increase quantity"
               className="flex w-10 shrink-0 items-center justify-center text-steel transition-colors hover:bg-cloud hover:text-ink"
             >
               <PlusIcon className="h-3.5 w-3.5" />
             </button>
           </div>
+          {quantity >= 100 && (
+            <p className="mt-2 text-xs text-red-600">
+              Maximum order quantity is 100.
+            </p>
+          )}
         </Field>
+
       </div>
 
       <Field label="Note for the rider (optional)" htmlFor="note" error={fieldErrors.note}>
