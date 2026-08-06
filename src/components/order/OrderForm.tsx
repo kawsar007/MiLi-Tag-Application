@@ -220,12 +220,12 @@ export default function OrderForm({
         </Field>
 
         <Field label="পরিমাণ" htmlFor="quantity" error={fieldErrors.quantity}>
-          <div className="flex items-stretch overflow-hidden rounded-lg border border-cloud-line bg-white transition-colors focus-within:border-indigo focus-within:ring-2 focus-within:ring-indigo/20">
+          <div className="flex items-stretch overflow-hidden rounded-lg border border-indigo bg-white transition-colors focus-within:border-indigo focus-within:ring-2 focus-within:ring-indigo/20">
             <button
               type="button"
               onClick={() => setQuantity((q) => Math.min(100, Math.max(1, q - 1)))}
               aria-label="Decrease quantity"
-              className="flex w-10 shrink-0 items-center justify-center text-steel transition-colors hover:bg-cloud hover:text-ink"
+              className="flex w-10 shrink-0 items-center justify-center text-ink transition-colors bg-indigo/10 hover:bg-indigo/20 hover:text-ink"
             >
               <MinusIcon className="h-3.5 w-3.5" />
             </button>
@@ -238,13 +238,13 @@ export default function OrderForm({
               onChange={(e) => setQuantity(Number(e.target.value))}
               aria-invalid={!!fieldErrors.quantity}
               aria-describedby={fieldErrors.quantity ? "quantity-error" : undefined}
-              className="w-full border-x border-cloud-line bg-transparent px-2 py-2.5 text-center text-sm text-ink outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              className="w-full border-x border-indigo bg-transparent px-2 py-2.5 text-center text-sm text-ink outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             />
             <button
               type="button"
               onClick={() => setQuantity((q) => Math.min(100, Math.max(1, q + 1)))}
               aria-label="Increase quantity"
-              className="flex w-10 shrink-0 items-center justify-center text-steel transition-colors hover:bg-cloud hover:text-ink"
+              className="flex w-10 shrink-0 items-center justify-center text-ink transition-colors bg-indigo/10 hover:bg-indigo/20 hover:text-ink"
             >
               <PlusIcon className="h-3.5 w-3.5" />
             </button>
