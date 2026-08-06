@@ -1,5 +1,6 @@
 
 import { DeliveryArea, deliveryCharges, deliveryOptions } from "@/constants/product";
+import { CheckIcon } from "lucide-react";
 import Image from "next/image";
 
 interface OrderSummaryCardProps {
@@ -96,8 +97,22 @@ export default function OrderSummaryCard({
       </dl>
 
       {orderConfirmed ? (
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3.5 text-center text-sm font-medium text-emerald-700">
-          Order placed — thank you!
+        // <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3.5 text-center text-sm font-medium text-emerald-700">
+        //   Order placed — thank you!
+        // </div>
+        <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-green-100 p-6 shadow-sm text-center">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-600">
+            <CheckIcon className="h-7 w-7 text-white" />
+          </div>
+
+          <h3 className="mt-4 text-xl font-semibold tracking-tight text-gray-900">
+            Thank you for your order
+          </h3>
+
+          <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-gray-600">
+            Your order has been placed successfully. We'll call you soon to confirm the
+            delivery details.
+          </p>
         </div>
       ) : (
         <button

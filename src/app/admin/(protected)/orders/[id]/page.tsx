@@ -1,9 +1,9 @@
+import OrderDetailStatusPanel from "@/components/admin/OrderDetailStatusPanel";
+import StatusBadge from "@/components/admin/StatusBadge";
+import { formatBDT } from "@/lib/money";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { prisma } from "@/lib/prisma";
-import { formatBDT } from "@/lib/money";
-import StatusBadge from "@/components/admin/StatusBadge";
-import OrderDetailStatusPanel from "@/components/admin/OrderDetailStatusPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -34,6 +34,7 @@ export default async function OrderDetailPage({ params }: OrderDetailPageProps) 
         timeStyle: "short",
       }),
     ],
+    ["Order ID", order.id],
   ];
 
   return (
