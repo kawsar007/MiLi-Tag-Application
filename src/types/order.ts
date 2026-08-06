@@ -17,6 +17,9 @@ export interface OrderRecord {
   quantity: number;
   unitPriceCents: number;
   totalCents: number;
+  grandTotalCents: number;
+  deliveryArea: string;
+  deliveryChargeCents: number;
   note: string | null;
   status: OrderStatus;
   createdAt: string;

@@ -1,9 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
-import type { Prisma } from "@prisma/client";
-import { prisma } from "@/lib/prisma";
-import { orderCreateSchema, orderStatusValues } from "@/lib/validations";
-import { getAdminFromRequest } from "@/lib/require-admin";
+import { deliveryCharges } from "@/constants/product";
 import { PRIMARY_PRODUCT_SLUG } from "@/lib/constants";
+import { toCents } from "@/lib/money";
+import { prisma } from "@/lib/prisma";
+import { getAdminFromRequest } from "@/lib/require-admin";
+import { orderCreateSchema, orderStatusValues } from "@/lib/validations";
+import type { Prisma } from "@prisma/client";
+import { NextRequest, NextResponse } from "next/server";
 
 // Orders touch the database on every request — never statically cache this route.
 export const dynamic = "force-dynamic";
@@ -39,8 +41,11 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const { customerName, phone, address, district, quantity, note } = parsed.data;
-  const totalCents = product.priceCents * quantity;
+  const { customerName, phone, address, district, quantity, note, deliveryArea } = parsed.data;
+
+  const productPriceCents = product.priceCents * quantity;
+  const deliveryChargeCents = toCents(deliveryCharges[deliveryArea as keyof typeof deliveryCharges]); // 80 → 8000 paisa
+  const grandTotalCents = productPriceCents + deliveryChargeCents;
 
   const order = await prisma.order.create({
     data: {
@@ -50,11 +55,22 @@ export async function POST(request: NextRequest) {
       district: district || null,
       quantity,
       unitPriceCents: product.priceCents,
-      totalCents,
+      totalCents: productPriceCents,
+      deliveryArea,
+      deliveryChargeCents,
+      grandTotalCents,
       note: note || null,
       productId: product.id,
     },
-    select: { id: true, status: true, totalCents: true, createdAt: true },
+    select: {
+      id: true,
+      status: true,
+      totalCents: true,
+      deliveryArea: true,
+      deliveryChargeCents: true,
+      grandTotalCents: true,
+      createdAt: true,
+    },
   });
 
   return NextResponse.json({ order }, { status: 201 });
@@ -84,11 +100,11 @@ export async function GET(request: NextRequest) {
     ...(isValidStatus(statusParam) ? { status: statusParam } : {}),
     ...(q
       ? {
-          OR: [
-            { customerName: { contains: q } },
-            { phone: { contains: q } },
-          ],
-        }
+        OR: [
+          { customerName: { contains: q } },
+          { phone: { contains: q } },
+        ],
+      }
       : {}),
   };
 

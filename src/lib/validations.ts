@@ -1,6 +1,9 @@
+import { deliveryOptions } from "@/constants/product";
 import { z } from "zod";
 
 const bdPhoneRegex = /^(?:\+?880|0)1[3-9]\d{8}$/;
+
+const deliveryAreaValues = deliveryOptions.map((o) => o.value) as [string, ...string[]];
 
 export const orderCreateSchema = z.object({
   customerName: z.string().trim().min(2, "Enter your full name").max(120),
@@ -12,6 +15,10 @@ export const orderCreateSchema = z.object({
   district: z.string().trim().max(80).optional().or(z.literal("")),
   quantity: z.coerce.number().int().min(1).max(100).default(1),
   note: z.string().trim().max(300).optional().or(z.literal("")),
+  deliveryArea: z.enum(deliveryAreaValues).default(deliveryAreaValues[0]).refine(
+    (value) => deliveryAreaValues.includes(value),
+    { message: "Please select a delivery area." }
+  ),
 });
 
 export type OrderCreateInput = z.infer<typeof orderCreateSchema>;

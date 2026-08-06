@@ -16,36 +16,41 @@ enum OrderStatus {
 }
 
 model Product {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  name        String
-  priceCents  Int
-  isActive    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  name       String
+  priceCents Int
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
-  orders      Order[]
+  orders Order[]
 
   @@map("products")
 }
 
 model Order {
-  id            String      @id @default(cuid())
-  customerName  String
-  phone         String
-  address       String      @db.Text
-  district      String?
-  quantity      Int         @default(1)
+  id             String  @id @default(cuid())
+  customerName   String
+  phone          String
+  address        String  @db.Text
+  district       String?
+  quantity       Int     @default(1)
   unitPriceCents Int
-  totalCents    Int
-  note          String?     @db.Text
-  status        OrderStatus @default(PENDING)
+  totalCents     Int
 
-  productId     String
-  product       Product     @relation(fields: [productId], references: [id])
+  deliveryArea        String @default("inside_dhaka")
+  deliveryChargeCents Int    @default(8000)
+  grandTotalCents     Int    @default(0) // totalCents + deliveryChargeCents
 
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
+  note   String?     @db.Text
+  status OrderStatus @default(PENDING)
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([status])
   @@index([phone])
