@@ -39,11 +39,13 @@ export default function WhyChooseUs() {
                 key={point.id}
                 className="flex flex-col gap-4 rounded-2xl border border-ink-line bg-ink-soft p-6 transition-colors duration-300 hover:border-cyan/50"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo/15 text-cyan">
-                  <Icon />
-                </span>
-                <h3 className="font-display text-base font-medium text-cloud">{point.title}</h3>
-                <p className="text-sm leading-relaxed text-steel-soft">{point.description}</p>
+                <div className="flex justify-center">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-indigo/15 text-cyan">
+                    <Icon />
+                  </span>
+                </div>
+                <h3 className="font-display text-base font-medium text-cloud text-center">{point.title}</h3>
+                <p className="text-sm leading-relaxed text-steel-soft text-center">{point.description}</p>
               </div>
             );
           })}

@@ -275,7 +275,7 @@ export default function OrderForm({
       ) : null}
 
       <p className="text-xs leading-relaxed text-steel">
-        আপনার ব্যক্তিগত তথ্য আপনার অর্ডার প্রক্রিয়া করতে এবং এই ওয়েবসাইট জুড়ে আপনার অভিজ্ঞতাকে সহায়তা করতে ব্যবহার করা হবে।
+        Your personal data will be used to process your order, support your experience throughout this website.
       </p>
 
       {/* Submit button intentionally lives in OrderSummaryCard (form="order-form" targets this form) */}

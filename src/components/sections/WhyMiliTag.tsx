@@ -20,7 +20,7 @@ export default function WhyMiliTag() {
     <section id="why-us" className="bg-ink py-20 text-cloud sm:py-24">
       <Container className="flex flex-col gap-12">
         <SectionTitle
-          eyebrow="কেন Orbi MiLi MiTag?"
+          eyebrow="কেন Orbi MiLi MiTag Duo?"
           title="অসাধারণ ফিচারস যা আপনাকে নিশ্চিন্ত রাখবে"
           tone="dark"
           description="আধুনিক প্রযুক্তি ও উচ্চমানের ডিজাইনের সমন্বয়ে তৈরি MiLi MiTag আপনার দৈনন্দিন জীবনকে আরও সহজ করবে"

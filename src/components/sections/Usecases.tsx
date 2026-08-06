@@ -18,7 +18,7 @@ export default function UseCases() {
             </span>
 
             <h2 className="border-l-4 border-cyan-soft py-1 pl-5 font-display text-3xl font-semibold leading-tight text-cloud sm:text-4xl">
-              MiLi MiTag কি কি কাজে লাগবে?
+              MiLi MiTag Duo কি কি কাজে লাগবে?
             </h2>
 
             <p className="text-base leading-relaxed text-steel-soft">

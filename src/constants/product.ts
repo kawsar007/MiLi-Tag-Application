@@ -30,7 +30,7 @@ export const heroCopy = {
   eyebrow: "ক্যাশ অন ডেলিভারি, দেশব্যাপী",
   title: "আপনার মূল্যবান জিনিস সর্বদা নিরাপদ রাখুন",
   subtitle:
-    "MiLi MiTag দিয়ে আপনার চাবি, ব্যাগ, মানিব্যাগ বা যেকোনো গুরুত্বপূর্ণ জিনিস ট্র্যাক করুন। Android 9+ ডিভাইসে Google Find My Device নেটওয়ার্কের মাধ্যমে সহজেই খুঁজে পান।",
+    "MiLi MiTag Duo দিয়ে আপনার চাবি, ব্যাগ, মানিব্যাগ বা যেকোনো গুরুত্বপূর্ণ জিনিস ট্র্যাক করুন। Android 9+ ডিভাইসে Google Find My Device নেটওয়ার্কের মাধ্যমে সহজেই খুঁজে পান।",
   // description:
   //   "Hybrid active noise cancellation, a 32-hour case, and a fit that stays put from your morning rickshaw ride to your last meeting. Order now, pay when it arrives.",
 };
@@ -161,9 +161,7 @@ export const faqs: FaqItem[] = [
     answer: [
       "Product Weight (grams): 9.5",
       "Case Dimensions (Length x Height x Width) (mm): 90 * 90 * 90",
-      "Outer Carton Weight (kg): 7",
-      "Outer Carton Dimensions (Length x Height x Width) (mm): 448 * 345 * 275",
-      "Quantity in Outer Carton (pcs): 180",
+      "Key Ring: 1x",
     ],
   },
 ];

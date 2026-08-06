@@ -341,12 +341,26 @@ import ContactCta from "./ContactCta";
 // Product images array - replace with your actual image paths
 const productImages = [
   { id: 1, src: "/images/gallery/g1.webp", alt: "Product Image 1" },
-  { id: 2, src: "/images/gallery/g2.webp", alt: "Product Image 2" },
+  // { id: 2, src: "/images/gallery/g2.webp", alt: "Product Image 2" },
   { id: 3, src: "/images/gallery/g3.webp", alt: "Product Image 3" },
-  { id: 4, src: "/images/gallery/g4.webp", alt: "Product Image 4" },
+  // { id: 4, src: "/images/gallery/g4.webp", alt: "Product Image 4" },
   { id: 5, src: "/images/gallery/g5.webp", alt: "Product Image 5" },
   { id: 6, src: "/images/gallery/g6.webp", alt: "Product Image 6" },
-  { id: 7, src: "/images/gallery/g7.webp", alt: "Product Image 7" },
+  // { id: 7, src: "/images/gallery/g7.webp", alt: "Product Image 7" },
+  { id: 7, src: "/images/hero/img1.webp", alt: "Product Image 7" },
+  { id: 8, src: "/images/hero/img2.webp", alt: "Product Image 8" },
+  { id: 9, src: "/images/hero/img3.webp", alt: "Product Image 9" },
+  // { id: 6, src: "/images/hero/g6.webp", alt: "Product Image 6" },
+  { id: 10, src: "/images/hero/pack1.jpg", alt: "Product Image 10" },
+  { id: 11, src: "/images/hero/pack2.jpg", alt: "Product Image 11" },
+  // { id: 9, src: "/images/hero/img3.webp", alt: "Product Image 9" },
+  { id: 12, src: "/images/hero/tag1.jpg", alt: "Product Image 12" },
+  { id: 13, src: "/images/hero/tag2.jpg", alt: "Product Image 13" },
+  { id: 14, src: "/images/hero/tag3.png", alt: "Product Image 14" },
+  { id: 15, src: "/images/hero/tag4.jpg", alt: "Product Image 15" },
+  { id: 16, src: "/images/hero/tag5.png", alt: "Product Image 16" },
+  { id: 17, src: "/images/hero/tag6.png", alt: "Product Image 17" },
+  { id: 18, src: "/images/hero/tag7.jpg", alt: "Product Image 18" },
 ];
 
 export default function Hero() {

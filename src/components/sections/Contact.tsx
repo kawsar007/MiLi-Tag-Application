@@ -8,7 +8,7 @@ import OrderSummaryCard from "../ui/OrderSummaryCard";
 
 // TODO: point this at your real product name field if one exists (e.g. site.product.name)
 const productName = "MiTag Duo — Smart Item Tracker";
-const productImage = "/mili1.webp";
+const productImage = "/images/gallery/g1.webp";
 
 export default function Contact() {
   const [quantity, setQuantity] = useState(1);
@@ -35,7 +35,7 @@ export default function Contact() {
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-8">
             <div className="rounded-2xl border border-cloud-line bg-white p-6 shadow-sm sm:p-8">
               <h3 className="mb-6 font-display text-lg font-semibold text-ink">
-                অর্ডার করতে ফর্মটি পূরণ করতে হবে
+                অর্ডার করতে ফর্মটি পূরণ করুন
               </h3>
               <OrderForm
                 onQuantityChange={setQuantity}
