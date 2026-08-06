@@ -225,7 +225,7 @@ export default function OrderForm({
               type="button"
               onClick={() => setQuantity((q) => Math.min(100, Math.max(1, q - 1)))}
               aria-label="Decrease quantity"
-              className="flex w-10 shrink-0 items-center justify-center text-ink transition-colors bg-indigo/10 hover:bg-indigo/20 hover:text-ink"
+              className="flex w-10 shrink-0 items-center justify-center text-ink transition-colors hover:bg-indigo/90 hover:text-white"
             >
               <MinusIcon className="h-3.5 w-3.5" />
             </button>
@@ -244,7 +244,7 @@ export default function OrderForm({
               type="button"
               onClick={() => setQuantity((q) => Math.min(100, Math.max(1, q + 1)))}
               aria-label="Increase quantity"
-              className="flex w-10 shrink-0 items-center justify-center text-ink transition-colors bg-indigo/10 hover:bg-indigo/20 hover:text-ink"
+              className="flex w-10 shrink-0 items-center justify-center text-ink transition-colors hover:bg-indigo/90 hover:text-white"
             >
               <PlusIcon className="h-3.5 w-3.5" />
             </button>
