@@ -102,7 +102,7 @@ export default function AdminSidebar() {
       <button
         ref={menuButtonRef}
         onClick={toggleMobileSidebar}
-        className="fixed left-4 top-4 z-50 rounded-lg bg-gray-900 p-2 text-gray-100 transition-colors hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-900 lg:hidden"
+        className="fixed left-4 top-4 z-50 rounded-lg border border-slate-200/80 bg-white p-2 text-slate-700 shadow-xs transition-colors hover:bg-slate-50 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:ring-offset-2 focus:ring-offset-white active:scale-95 lg:hidden"
         aria-label="Toggle navigation menu"
         aria-expanded={isMobileOpen}
         aria-controls="mobile-sidebar"
