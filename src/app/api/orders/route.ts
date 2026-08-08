@@ -1,5 +1,6 @@
 import { deliveryCharges } from "@/constants/product";
 import { PRIMARY_PRODUCT_SLUG } from "@/lib/constants";
+import { generateOrderId } from "@/lib/id";
 import { toCents } from "@/lib/money";
 import { prisma } from "@/lib/prisma";
 import { getAdminFromRequest } from "@/lib/require-admin";
@@ -49,6 +50,7 @@ export async function POST(request: NextRequest) {
 
   const order = await prisma.order.create({
     data: {
+      id: generateOrderId(),
       customerName,
       phone,
       address,
