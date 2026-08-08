@@ -9,20 +9,20 @@ import ContactCta from "./ContactCta";
 
 // Product images array - replace with your actual image paths
 const productImages = [
-  { id: 1, src: "/images/hero/101g1.webp", alt: "Product Image 1" },
-  { id: 2, src: "/images/hero/102tag2.jpg", alt: "Product Image 2" },
-  { id: 3, src: "/images/hero/103tag5.png", alt: "Product Image 3" },
-  { id: 4, src: "/images/hero/104img1.webp", alt: "Product Image 4" },
-  { id: 5, src: "/images/hero/105g6.webp", alt: "Product Image 5" },
-  { id: 6, src: "/images/hero/106g3.webp", alt: "Product Image 6" },
-  { id: 7, src: "/images/hero/107showcase2.webp", alt: "Product Image 7" },
-  { id: 8, src: "/images/hero/108showcase1.webp", alt: "Product Image 8" },
-  { id: 9, src: "/images/hero/109tag7.jpg", alt: "Product Image 9" },
-  { id: 10, src: "/images/hero/110tag1.jpg", alt: "Product Image 10" },
-  { id: 11, src: "/images/hero/111pack2.jpg", alt: "Product Image 11" },
-  { id: 12, src: "/images/hero/112pack1.jpg", alt: "Product Image 12" },
-  { id: 13, src: "/images/hero/113img2.webp", alt: "Product Image 13" },
-  { id: 14, src: "/images/hero/114tag4.jpg", alt: "Product Image 14" },
+  { id: 1, src: "/mili-tag/images/hero/101g1.webp", alt: "Product Image 1" },
+  { id: 2, src: "/mili-tag/images/hero/102tag2.jpg", alt: "Product Image 2" },
+  { id: 3, src: "/mili-tag/images/hero/103tag5.png", alt: "Product Image 3" },
+  { id: 4, src: "/mili-tag/images/hero/104img1.webp", alt: "Product Image 4" },
+  { id: 5, src: "/mili-tag/images/hero/105g6.webp", alt: "Product Image 5" },
+  { id: 6, src: "/mili-tag/images/hero/106g3.webp", alt: "Product Image 6" },
+  { id: 7, src: "/mili-tag/images/hero/107showcase2.webp", alt: "Product Image 7" },
+  { id: 8, src: "/mili-tag/images/hero/108showcase1.webp", alt: "Product Image 8" },
+  { id: 9, src: "/mili-tag/images/hero/109tag7.jpg", alt: "Product Image 9" },
+  { id: 10, src: "/mili-tag/images/hero/110tag1.jpg", alt: "Product Image 10" },
+  { id: 11, src: "/mili-tag/images/hero/111pack2.jpg", alt: "Product Image 11" },
+  { id: 12, src: "/mili-tag/images/hero/112pack1.jpg", alt: "Product Image 12" },
+  { id: 13, src: "/mili-tag/images/hero/113img2.webp", alt: "Product Image 13" },
+  { id: 14, src: "/mili-tag/images/hero/114tag4.jpg", alt: "Product Image 14" },
 ];
 
 export default function Hero() {

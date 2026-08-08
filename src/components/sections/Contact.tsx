@@ -8,7 +8,7 @@ import OrderSummaryCard from "../ui/OrderSummaryCard";
 
 // TODO: point this at your real product name field if one exists (e.g. site.product.name)
 const productName = "MiTag Duo — Smart Item Tracker";
-const productImage = "/images/gallery/g1.webp";
+const productImage = "/mili-tag/images/gallery/g1.webp";
 
 export default function Contact() {
   const [quantity, setQuantity] = useState(1);

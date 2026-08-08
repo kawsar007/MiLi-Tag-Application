@@ -171,22 +171,22 @@ export const productContents: ProductContent[] = [
   {
     id: "mitag-duo",
     name: "MiTag Duo",
-    image: "/images/icon1.webp",
+    image: "/mili-tag/images/icon1.webp",
   },
   {
     id: "key-ring",
     name: "Key Ring",
-    image: "/images/icon2.avif",
+    image: "/mili-tag/images/icon2.avif",
   },
   {
     id: "battery",
     name: "1x CR2032 Battery",
-    image: "/images/icon3.avif",
+    image: "/mili-tag/images/icon3.avif",
   },
   {
     id: "user-manual",
     name: "User Manual",
-    image: "/images/icon4.webp",
+    image: "/mili-tag/images/icon4.webp",
   },
 ];
 
@@ -209,7 +209,7 @@ export const showcaseRows: ShowcaseRow[] = [
     description:
       "MiTag Duo is a dual-system smart tracker for your keys, bags, luggage, and everyday essentials. Get leave-behind alerts and locate your items from your phone, so you never worry about leaving something behind.",
     image: {
-      src: "/images/showcase/showcase1.webp",
+      src: "/mili-tag/images/showcase/showcase1.webp",
       alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
     },
     imageSide: "right",
@@ -220,7 +220,7 @@ export const showcaseRows: ShowcaseRow[] = [
     description:
       "MiTag Duo works with both Apple Find My and Google Find Hub, so you can track your essentials with the phone you already use.",
     image: {
-      src: "/images/showcase/showcase2.webp",
+      src: "/mili-tag/images/showcase/showcase2.webp",
       alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
     },
     imageSide: "left",
@@ -231,7 +231,7 @@ export const showcaseRows: ShowcaseRow[] = [
     description:
       "Rainy rides, crowded airports, coffee shop stops — MiLi is designed for everyday moments with IP67 water resistance and a replaceable battery built to last longer.",
     image: {
-      src: "/images/showcase/showcase3.webp",
+      src: "/mili-tag/images/showcase/showcase3.webp",
       alt: "MiTag Duo tracker and keys resting in a tray beside a notebook and laptop",
     },
     imageSide: "right",
@@ -242,7 +242,7 @@ export const showcaseRows: ShowcaseRow[] = [
     description:
       "Forgot your backpack at a cafe? Left your luggage behind at the airport? MiLi reminds you before small mistakes turn into stressful moments.",
     image: {
-      src: "/images/showcase/showcase4.webp",
+      src: "/mili-tag/images/showcase/showcase4.webp",
       alt: "Hand holding a phone showing the MiTag Duo tracking app next to a hand holding keys with the tracker attached",
     },
     imageSide: "left",

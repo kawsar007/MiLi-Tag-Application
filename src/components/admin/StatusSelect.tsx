@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { ORDER_STATUSES, type OrderStatus } from "@/types/order";
+import { useState } from "react";
 
 interface StatusSelectProps {
   orderId: string;
@@ -17,7 +17,7 @@ export default function StatusSelect({ orderId, currentStatus, onUpdated }: Stat
     setIsSaving(true);
     setError(null);
     try {
-      const res = await fetch(`/api/orders/${orderId}`, {
+      const res = await fetch(`/mili-tag/api/orders/${orderId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: next }),

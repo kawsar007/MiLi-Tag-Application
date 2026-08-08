@@ -69,7 +69,7 @@ export default function OrderForm({
     setFormError(null);
 
     try {
-      const res = await fetch("/api/orders", {
+      const res = await fetch("/mili-tag/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -40,7 +40,7 @@ export default function AdminOrdersPage() {
       if (statusFilter) params.set("status", statusFilter);
       if (search) params.set("q", search);
       params.set("page", String(page));
-      const res = await fetch(`/api/orders?${params.toString()}`);
+      const res = await fetch(`/mili-tag/api/orders?${params.toString()}`);
       if (!res.ok) throw new Error("Failed to load orders");
       const data: OrdersResponse = await res.json();
       setOrders(data.orders);
