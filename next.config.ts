@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  basePath: "/mili-tag",
   // Prisma's generated client relies on native bindings — keep it (and bcrypt,
   // which also ships a native path) out of the server bundle instead of
   // letting Next try to bundle them.
