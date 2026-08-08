@@ -2,42 +2,35 @@
 import crypto from 'node:crypto';
 
 export function generateOrderId(): string {
-  const now = new Date();
+  // Asia/Dhaka (BST) timezone dynamic parts extract
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Dhaka',
+    year: '2-digit',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
 
-  // Convert current UTC time to BST (UTC + 6 hours)
-  const bstDate = new Date(now.getTime() + 6 * 60 * 60 * 1000);
+  const parts = formatter.formatToParts(new Date()).reduce((acc, part) => {
+    if (part.type !== 'literal') {
+      acc[part.type] = part.value;
+    }
+    return acc;
+  }, {} as Record<string, string>);
 
-  const yy = String(bstDate.getUTCFullYear()).slice(-2);
-  const mm = String(bstDate.getUTCMonth() + 1).padStart(2, '0');
-  const dd = String(bstDate.getUTCDate()).padStart(2, '0');
-  const hh = String(bstDate.getUTCHours()).padStart(2, '0');
-  const min = String(bstDate.getUTCMinutes()).padStart(2, '0');
-  const ss = String(bstDate.getUTCSeconds()).padStart(2, '0');
+  const yy = parts.year;
+  const mm = parts.month;
+  const dd = parts.day;
+  const hh = parts.hour === '24' ? '00' : parts.hour; // Standardize 24-hour hour string
+  const min = parts.minute;
+  const ss = parts.second;
 
-  // 4 random hex characters to prevent collisions on simultaneous orders
+  // Collision avoid korar jonno random suffix
   const randomSuffix = crypto.randomBytes(2).toString('hex').toUpperCase();
 
   return `${yy}${mm}${dd}${hh}${min}${ss}-${randomSuffix}`;
-  // Example output for August 8, 2026 at 17:33:58 BST:
-  // 260808173358-8F2A
+  // Output example: 260808175046-A3F1
 }
-
-
-// // lib/id.ts
-// import crypto from 'node:crypto';
-
-// export function generateOrderId(): string {
-//   const now = new Date();
-//   const yy = String(now.getFullYear()).slice(-2);
-//   const mm = String(now.getMonth() + 1).padStart(2, '0');
-//   const dd = String(now.getDate()).padStart(2, '0');
-//   const hh = String(now.getHours()).padStart(2, '0');
-//   const min = String(now.getMinutes()).padStart(2, '0');
-//   const ss = String(now.getSeconds()).padStart(2, '0');
-
-//   // Add 4 random hex characters to prevent collisions if 2 orders land in the same second
-//   const randomSuffix = crypto.randomBytes(2).toString('hex').toUpperCase();
-
-//   return `${yy}${mm}${dd}${hh}${min}${ss}-${randomSuffix}`;
-//   // Output example: 260808164119-A3F1
-// }
