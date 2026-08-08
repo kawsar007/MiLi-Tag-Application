@@ -15,14 +15,37 @@ enum OrderStatus {
   CANCELLED
 }
 
+// model Product {
+//   id         String   @id @default(cuid())
+//   slug       String   @unique
+//   name       String
+//   priceCents Int
+//   isActive   Boolean  @default(true)
+//   createdAt  DateTime @default(now())
+//   updatedAt  DateTime @updatedAt
+
+//   orders Order[]
+
+//   @@map("products")
+// }
+
 model Product {
-  id         String   @id @default(cuid())
-  slug       String   @unique
-  name       String
-  priceCents Int
-  isActive   Boolean  @default(true)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  slug               String   @unique
+  name               String
+  // Marketing copy + pricing breakdown, editable by admin via PATCH
+  // /api/product. `priceCents` remains the single authoritative price used
+  // for order calculations (see /api/orders) — it's kept in sync as
+  // discountPriceCents ?? originalPriceCents whenever either is updated,
+  // so existing checkout/order logic needs no changes.
+  title              String?
+  subtitle           String?  @db.Text
+  priceCents         Int
+  originalPriceCents Int?
+  discountPriceCents Int?
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   orders Order[]
 

@@ -118,7 +118,7 @@ export default function OrderForm({
 
   return (
     <form id="order-form" onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
-      <Field label="ডেলিভারি এলাকা" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
+      {/* <Field label="ডেলিভারি এলাকা" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
         <div role="radiogroup" aria-label="Delivery area" className="flex flex-col gap-3">
           {deliveryOptions.map((option) => {
             const isSelected = deliveryArea === option.value;
@@ -158,7 +158,63 @@ export default function OrderForm({
             );
           })}
         </div>
-      </Field>
+      </Field> */}
+
+      <div className="flex flex-col gap-1.5">
+        <span id="deliveryArea-label" className="text-xs font-bold uppercase tracking-wide text-ink/80">
+          ডেলিভারি এলাকা<span className="ml-0.5 text-rose-500">*</span>
+        </span>
+        <div
+          role="radiogroup"
+          aria-labelledby="deliveryArea-label"
+          aria-describedby={fieldErrors.deliveryArea ? "deliveryArea-error" : undefined}
+          className="flex flex-col gap-3"
+        >
+          {deliveryOptions.map((option) => {
+            const isSelected = deliveryArea === option.value;
+            return (
+              <label
+                key={option.value}
+                htmlFor={`deliveryArea-${option.value}`}
+                className={`flex cursor-pointer items-center justify-between gap-4 rounded-xl border p-4 transition-colors duration-150 focus-within:ring-2 focus-within:ring-indigo/30 focus-within:ring-offset-1 ${isSelected
+                  ? "border-indigo bg-indigo/5"
+                  : "border-cloud-line bg-white hover:border-steel/40"
+                  }`}
+              >
+                <span className="flex items-center gap-3">
+                  <span
+                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-150 ${isSelected ? "border-indigo" : "border-cloud-line"
+                      }`}
+                    aria-hidden="true"
+                  >
+                    {isSelected ? <span className="h-2.5 w-2.5 rounded-full bg-indigo" /> : null}
+                  </span>
+                  <span className="text-sm font-medium text-ink sm:text-base">{option.label}</span>
+                </span>
+
+                <span className="flex items-center gap-2">
+                  <span className="text-sm font-semibold text-ink sm:text-base">৳{option.charge}</span>
+                  <input
+                    type="radio"
+                    id={`deliveryArea-${option.value}`}
+                    name="deliveryArea"
+                    value={option.value}
+                    checked={isSelected}
+                    onChange={() => setDeliveryArea(option.value)}
+                    className="sr-only"
+                  />
+                </span>
+              </label>
+            );
+          })}
+        </div>
+        {fieldErrors.deliveryArea?.[0] ? (
+          <span id="deliveryArea-error" role="alert" className="flex items-center gap-1 text-xs text-rose-600">
+            <AlertIcon className="h-3 w-3 shrink-0" />
+            {fieldErrors.deliveryArea[0]}
+          </span>
+        ) : null}
+      </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="আপনার নাম লিখুন" htmlFor="customerName" required error={fieldErrors.customerName}>
@@ -232,7 +288,18 @@ export default function OrderForm({
               min={1}
               max={100}
               value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
+              // onChange={(e) => setQuantity(Number(e.target.value))}
+              // after
+              onChange={(e) => {
+                const raw = e.target.value;
+                if (raw === "") {
+                  setQuantity(1);
+                  return;
+                }
+                const parsed = Number(raw);
+                if (Number.isNaN(parsed)) return; // ignore invalid input, keep the last valid value
+                setQuantity(Math.min(100, Math.max(1, Math.trunc(parsed))));
+              }}
               aria-invalid={!!fieldErrors.quantity}
               aria-describedby={fieldErrors.quantity ? "quantity-error" : undefined}
               className="w-full border-x border-indigo bg-transparent px-2 py-2.5 text-center text-sm text-ink outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"

@@ -1,5 +1,7 @@
 
 import { DeliveryArea, deliveryCharges, deliveryOptions } from "@/constants/product";
+import { useProduct } from "@/hooks/useProduct";
+import { formatBDT } from "@/lib/money";
 import { CheckIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -39,7 +41,9 @@ export default function OrderSummaryCard({
   isSubmitting,
   orderConfirmed,
 }: OrderSummaryCardProps) {
-  const parsedUnit = parseAmount(unitPrice);
+  const { product } = useProduct();
+  const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
+  const parsedUnit = parseAmount(priceCents ? formatBDT(priceCents) : unitPrice);
   const deliveryChargeNumeric = deliveryCharges[deliveryArea];
   const deliveryLabel = deliveryOptions.find((option) => option.value === deliveryArea)?.label ?? "";
 
@@ -53,7 +57,8 @@ export default function OrderSummaryCard({
   // introduced later, add/subtract them here — the button below always reads from
   // this one value, so it can never drift out of sync with the breakdown above it.
   const totalNumeric = subtotalNumeric !== null ? subtotalNumeric + deliveryChargeNumeric : null;
-  const totalDisplay = totalNumeric !== null ? formatLikeSource(totalNumeric, unitPrice) : subtotalDisplay;
+  // const totalDisplay = totalNumeric !== null ? formatLikeSource(totalNumeric, unitPrice) : subtotalDisplay;
+  const totalDisplay = totalNumeric !== null ? formatBDT(totalNumeric * 100) : subtotalDisplay;
 
   return (
     <div className="flex flex-col gap-6 rounded-2xl border border-cloud-line bg-white p-6 shadow-sm sm:p-8">
@@ -68,14 +73,14 @@ export default function OrderSummaryCard({
           <span className="font-display text-sm font-medium leading-snug text-ink sm:text-base">
             {productName}
           </span>
-          {originalPrice ? (
-            <span className="text-xs text-steel line-through">{originalPrice}</span>
+          {originalPriceCents ? (
+            <span className="text-xs text-steel line-through">{formatBDT(originalPriceCents)}</span>
           ) : null}
         </div>
 
         <div className="text-right">
           <span className="block font-display text-sm font-semibold text-ink sm:text-base">
-            {unitPrice}
+            {formatBDT(discountPriceCents ?? 0)}
           </span>
           <span className="block text-xs text-steel">Qty {quantity}</span>
         </div>
@@ -84,7 +89,7 @@ export default function OrderSummaryCard({
       <dl className="flex flex-col gap-3 border-t border-cloud-line pt-4 text-sm">
         <div className="flex items-center justify-between">
           <dt className="text-steel">Subtotal</dt>
-          <dd className="text-ink transition-all duration-150">{subtotalDisplay}</dd>
+          <dd className="text-ink transition-all duration-150">{formatBDT(discountPriceCents ?? 0)}</dd>
         </div>
         <div className="flex items-center justify-between">
           <dt className="text-steel">Delivery charge ({deliveryLabel})</dt>

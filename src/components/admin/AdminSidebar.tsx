@@ -1,6 +1,6 @@
 "use client";
 
-import { ListOrdered, Menu, ShieldCheck, SquareChartGantt, User, X } from "lucide-react";
+import { ListOrdered, Menu, Settings, ShieldCheck, SquareChartGantt, User, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react";
 const links = [
   { href: "/admin", label: "Overview", icon: SquareChartGantt },
   { href: "/admin/orders", label: "Orders", icon: ListOrdered },
+  { href: "/admin/product", label: "Product", icon: Settings },
   { href: "/admin/profile", label: "Profile", icon: User },
 ];
 

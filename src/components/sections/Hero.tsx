@@ -1,7 +1,9 @@
 "use client";
 
 import Container from "@/components/ui/Container";
-import { heroCopy, site } from "@/constants/product";
+import { heroCopy } from "@/constants/product";
+import { useProduct } from "@/hooks/useProduct";
+import { formatBDT } from "@/lib/money";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -26,6 +28,11 @@ const productImages = [
 ];
 
 export default function Hero() {
+  const { product } = useProduct();
+  console.log("Product Details:--->", product);
+  const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
+  const save = discountPriceCents && originalPriceCents ? originalPriceCents - discountPriceCents : 0;
+
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -150,14 +157,14 @@ export default function Hero() {
 
           <h1 className="heading-primary text-ink">
             আপনার মূল্যবান জিনিস <span className="text-indigo">সর্বদা নিরাপদ রাখুন</span>
-            {/* Never lose what matters! */}
           </h1>
           <p className="text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Never lose what matters!
+            {/* Never lose what matters! */}
+            {title}
           </p>
           <p className="max-w-lg text-md font-medium text-ink/80">
-            {/* {heroCopy.subtitle} */}
-            MiLi MiTag Duo দিয়ে আপনার চাবি, ব্যাগ, মানিব্যাগ ও অন্যান্য যেকোনো গুরুত্বপূর্ণ জিনিস ট্র্যাক করুন। শুরু করুন স্মার্ট ও নিরাপদ জীবন।
+            {/* MiLi MiTag Duo দিয়ে আপনার চাবি, ব্যাগ, মানিব্যাগ ও অন্যান্য যেকোনো গুরুত্বপূর্ণ জিনিস ট্র্যাক করুন। শুরু করুন স্মার্ট ও নিরাপদ জীবন। */}
+            {subtitle}
           </p>
 
           <p className="max-w-lg text-md font-medium text-ink/80 flex items-center gap-3">
@@ -171,11 +178,17 @@ export default function Hero() {
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <span className="font-display text-4xl font-bold text-ink">
-              {site.price.current}
+              {/* {site.price.current} */}
+              {/* ৳ {discountPriceCents ? (discountPriceCents / 100).toFixed(2) : ((priceCents ?? 0) / 100).toFixed(2)} */}
+              {formatBDT(discountPriceCents ?? 0)}
             </span>
-            <span className="text-sm text-steel line-through">{site.price.original}</span>
+            <span className="text-sm text-steel line-through">
+              {/* ৳ {originalPriceCents ? (originalPriceCents / 100).toFixed(2) : ''} */}
+              {formatBDT(originalPriceCents ?? 0)}
+            </span>
             <span className="rounded-full bg-indigo/10 px-3 py-1 text-xs font-medium text-indigo">
-              {site.price.discountLabel}
+              {/* {site.price.discountLabel} */}
+              {save > 0 ? `Save ৳${(save / 100).toFixed(2)}` : ''}
             </span>
           </div>
 

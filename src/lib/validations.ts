@@ -71,3 +71,18 @@ export const changePasswordSchema = z
   });
 
 export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
+
+
+export const productUpdateSchema = z
+  .object({
+    name: z.string().trim().min(2, "Name must be at least 2 characters").max(200).optional(),
+    title: z.string().trim().min(2, "Title must be at least 2 characters").max(200).optional(),
+    subtitle: z.string().trim().max(300).optional(),
+    originalPrice: z.coerce.number().positive("Original price must be greater than 0").optional(),
+    discountPrice: z.coerce.number().positive("Discount price must be greater than 0").optional(),
+  })
+  .refine((data) => Object.keys(data).length > 0, {
+    message: "Provide at least one field to update",
+  });
+
+export type ProductUpdateInput = z.infer<typeof productUpdateSchema>;
