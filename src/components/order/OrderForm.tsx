@@ -44,7 +44,6 @@ export default function OrderForm({
   const [formError, setFormError] = useState<string | null>(null);
   const [confirmedOrderId, setConfirmedOrderId] = useState<string | null>(null);
 
-  // Mirror live values up to a parent (e.g. an order summary card), if it's listening.
   // Purely additive — submission logic below is unaffected either way.
   useEffect(() => {
     onQuantityChange?.(quantity);
@@ -118,8 +117,6 @@ export default function OrderForm({
   }
 
   return (
-    // id lets the submit button in OrderSummaryCard target this form via form="order-form",
-    // even though it renders in a different part of the tree.
     <form id="order-form" onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
       <Field label="ডেলিভারি এলাকা" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
         <div role="radiogroup" aria-label="Delivery area" className="flex flex-col gap-3">
@@ -284,7 +281,6 @@ export default function OrderForm({
         Your personal data will be used to process your order, support your experience throughout this website.
       </p>
 
-      {/* Submit button intentionally lives in OrderSummaryCard (form="order-form" targets this form) */}
     </form>
   );
 }
