@@ -12,7 +12,7 @@ export default function AdminTopbar() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/auth/me")
+    fetch("/mili-tag/api/auth/me")
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!cancelled && data?.admin) setAdmin(data.admin);

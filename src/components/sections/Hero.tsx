@@ -29,7 +29,6 @@ const productImages = [
 
 export default function Hero() {
   const { product } = useProduct();
-  console.log("Product Details:--->", product);
   const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
   const save = discountPriceCents && originalPriceCents ? originalPriceCents - discountPriceCents : 0;
 
