@@ -10,7 +10,7 @@ async function main() {
     update: {},
     create: {
       slug: PRIMARY_PRODUCT_SLUG,
-      name: "Orbi MiLi MiTag Tracking Device",
+      name: "Orbi GPS Tracker Tracking Device",
       priceCents: 99000, // ৳990.00, stored as paisa
       isActive: true,
     },

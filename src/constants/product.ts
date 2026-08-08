@@ -1,7 +1,7 @@
 import type { FaqItem, ProductContent, SellingPoint } from "@/types";
 
 export const site = {
-  name: "Orbi MiLi MiTag",
+  name: "Orbi GPS Tracker",
   tagline: "Earbuds tuned for real days, not showrooms",
   price: {
     current: "৳ 990",

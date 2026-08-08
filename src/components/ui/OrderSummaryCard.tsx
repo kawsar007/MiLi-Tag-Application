@@ -128,7 +128,7 @@ export default function OrderSummaryCard({
               Placing order…
             </>
           ) : (
-            `Place order — pay ${totalDisplay}`
+            `Place order`
           )}
         </button>
       )}
