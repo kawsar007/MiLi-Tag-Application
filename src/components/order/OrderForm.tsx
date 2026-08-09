@@ -1,6 +1,9 @@
 "use client";
 
 import { defaultDeliveryArea, DeliveryArea, deliveryOptions } from "@/constants/product";
+import { useProduct } from "@/hooks/useProduct";
+import { trackMetaEvent } from "@/lib/meta-pixel";
+import { formatBDT } from "@/lib/money";
 import { useEffect, useState, type FormEvent } from "react";
 
 
@@ -31,6 +34,14 @@ export default function OrderForm({
   onSubmittingChange,
   onOrderConfirmedChange,
 }: OrderFormProps = {}) {
+  const { product } = useProduct();
+  const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
+
+
+  const formatePrice = formatBDT(priceCents || 0);
+  const purchaseValue = Number(
+    String(formatePrice).replace(/[^\d.-]/g, "") // remove currency symbols and commas
+  );
   const [customerName, setCustomerName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -90,6 +101,15 @@ export default function OrderForm({
         return;
       }
 
+      // Track successful purchase
+      trackMetaEvent("Purchase", {
+        content_name: "Orbi MiLi MiTag",
+        content_type: "product",
+        content_ids: ["mili-mitag"],
+        value: purchaseValue,
+        currency: "BDT",
+      });
+
       setConfirmedOrderId(data.order.id);
     } catch {
       setFormError("Couldn't reach the server. Check your connection and try again.");
@@ -118,48 +138,6 @@ export default function OrderForm({
 
   return (
     <form id="order-form" onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
-      {/* <Field label="ডেলিভারি এলাকা" htmlFor="deliveryArea-inside_dhaka" required error={fieldErrors.deliveryArea}>
-        <div role="radiogroup" aria-label="Delivery area" className="flex flex-col gap-3">
-          {deliveryOptions.map((option) => {
-            const isSelected = deliveryArea === option.value;
-            return (
-              <label
-                key={option.value}
-                htmlFor={`deliveryArea-${option.value}`}
-                className={`flex cursor-pointer items-center justify-between gap-4 rounded-xl border p-4 transition-colors duration-150 focus-within:ring-2 focus-within:ring-indigo/30 focus-within:ring-offset-1 ${isSelected
-                  ? "border-indigo bg-indigo/5"
-                  : "border-cloud-line bg-white hover:border-steel/40"
-                  }`}
-              >
-                <span className="flex items-center gap-3">
-                  <span
-                    className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-150 ${isSelected ? "border-indigo" : "border-cloud-line"
-                      }`}
-                    aria-hidden="true"
-                  >
-                    {isSelected ? <span className="h-2.5 w-2.5 rounded-full bg-indigo" /> : null}
-                  </span>
-                  <span className="text-sm font-medium text-ink sm:text-base">{option.label}</span>
-                </span>
-
-                <span className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-ink sm:text-base">৳{option.charge}</span>
-                  <input
-                    type="radio"
-                    id={`deliveryArea-${option.value}`}
-                    name="deliveryArea"
-                    value={option.value}
-                    checked={isSelected}
-                    onChange={() => setDeliveryArea(option.value)}
-                    className="sr-only"
-                  />
-                </span>
-              </label>
-            );
-          })}
-        </div>
-      </Field> */}
-
       <div className="flex flex-col gap-1.5">
         <span id="deliveryArea-label" className="text-xs font-bold uppercase tracking-wide text-ink/80">
           ডেলিভারি এলাকা<span className="ml-0.5 text-rose-500">*</span>

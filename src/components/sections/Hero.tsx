@@ -3,6 +3,7 @@
 import Container from "@/components/ui/Container";
 import { heroCopy } from "@/constants/product";
 import { useProduct } from "@/hooks/useProduct";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 import { formatBDT } from "@/lib/money";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -31,6 +32,19 @@ export default function Hero() {
   const { product } = useProduct();
   const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
   const save = discountPriceCents && originalPriceCents ? originalPriceCents - discountPriceCents : 0;
+
+  // Track Meta Pixel event for product view
+  useEffect(() => {
+    if (!product) return;
+
+    trackMetaEvent("ViewContent", {
+      content_name: "Orbi MiLi MiTag",
+      content_type: "product",
+      content_ids: [product.id],
+      value: (product.discountPriceCents ?? product.priceCents ?? 0) / 100,
+      currency: "BDT",
+    });
+  }, [product]);
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);

@@ -1,9 +1,31 @@
+"use client";
+
 import Button from "@/components/ui/Button";
 import { site } from "@/constants/product";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 export default function ContactCta() {
   const whatsappHref = `https://wa.me/${site.contact.phone.replace(/[^\d]/g, "")}`;
   const telHref = `tel:${site.contact.phone.replace(/[^+\d]/g, "")}`;
+
+  const handleOrderClick = () => {
+    trackMetaEvent("InitiateCheckout", {
+      content_name: "Orbi MiLi MiTag",
+      content_type: "product",
+    });
+  };
+
+  const handleWhatsAppClick = () => {
+    trackMetaEvent("Contact", {
+      contact_method: "whatsapp",
+    });
+  };
+
+  const handlePhoneClick = () => {
+    trackMetaEvent("Contact", {
+      contact_method: "phone",
+    });
+  };
 
   return (
     <div className="flex flex-col gap-3 pt-2">
@@ -20,6 +42,7 @@ export default function ContactCta() {
           focus-visible:ring-2 focus-visible:ring-offset-2
           motion-reduce:animate-none
         "
+        onClick={handleOrderClick}
       >
         <span className="inline-flex items-center justify-center gap-2 relative z-10">
           <PhoneIcon className="h-4 w-4" />
@@ -32,13 +55,14 @@ export default function ContactCta() {
           href={whatsappHref}
           variant="secondary"
           className="justify-center"
+          onClick={handleWhatsAppClick}
         >
           <span className="inline-flex items-center justify-center gap-2">
             <WhatsAppIcon className="h-5 w-5" />
             <span className="font-semibold">WhatsApp</span>
           </span>
         </Button>
-        <Button href={telHref} variant="ghost" className="justify-center">
+        <Button href={telHref} variant="ghost" className="justify-center" onClick={handlePhoneClick}>
           <span className="inline-flex items-center justify-center gap-2">
             <PhoneIcon className="h-4 w-4" />
             কল করুন
