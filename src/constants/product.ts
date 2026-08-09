@@ -2,16 +2,16 @@ import type { FaqItem, ProductContent, SellingPoint } from "@/types";
 
 export const site = {
   name: "Orbi GPS Tracker",
-  tagline: "Earbuds tuned for real days, not showrooms",
+  tagline: "Never lose what matters!",
   price: {
     current: "৳ 990",
     original: "৳ 1,150",
     discountLabel: "Save ৳ 160",
   },
   contact: {
-    phone: "+880 1XXX-XXXXXX",
-    email: "hello@militag.example",
-    address: "House 12, Road 4, Banani, Dhaka 1213",
+    phone: "+8801751704061",
+    email: "orbigpstracker@gmail.com",
+    address: "L-53/4 (2nd Floor), Post Office Road, Middle Badda, Dhaka, Bangladesh, 1212",
   },
   social: [
     { label: "Facebook", href: "#" },
