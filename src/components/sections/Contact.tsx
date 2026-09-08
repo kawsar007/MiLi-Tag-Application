@@ -25,7 +25,7 @@ export default function Contact() {
               Ready when you are
             </span>
             <h2 className="font-display text-2xl font-medium text-ink sm:text-3xl">
-              Order {productName} — pay {site.price.current} when it arrives
+              Order {productName} — pay when it arrives
             </h2>
             <p className="max-w-md text-sm text-steel">
               Fill in your details below, or call us directly — no account, no advance payment.
