@@ -21,7 +21,7 @@ export const site = {
   nav: [
     { label: "Product", href: "#product" },
     { label: "Why Us", href: "#why-us" },
-    { label: "FAQ", href: "#faq" },
+    { label: "TechSpecS", href: "#faq" },
     { label: "Contact", href: "#contact" },
   ],
 };
@@ -72,7 +72,7 @@ export const whyOrbiMili: SellingPoint[] = [
   {
     id: "location",
     title: "লোকেশন ট্র্যাকিং",
-    description: "Android- Find Hub iOS: Find My অ্যাপের মাধ্যমে যেকোনো জায়গা থেকে ট্র্যাক করুন",
+    description: "Android: Find Hub ও iOS: Find My অ্যাপের মাধ্যমে যেকোনো জায়গা থেকে ট্র্যাক করুন",
   },
   {
     id: "bluetooth",
