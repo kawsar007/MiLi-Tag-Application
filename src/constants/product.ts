@@ -72,7 +72,7 @@ export const whyOrbiMili: SellingPoint[] = [
   {
     id: "location",
     title: "লোকেশন ট্র্যাকিং",
-    description: "Google Find My Device নেটওয়ার্কের মাধ্যমে যেকোনো জায়গা থেকে ট্র্যাক করুন",
+    description: "Android- Find Hub iOS: Find My অ্যাপের মাধ্যমে যেকোনো জায়গা থেকে ট্র্যাক করুন",
   },
   {
     id: "bluetooth",
@@ -91,8 +91,8 @@ export const whyOrbiMili: SellingPoint[] = [
   },
   {
     id: "android",
-    title: "Android সাপোর্ট",
-    description: "Android 9 বা তার উপরের সকল ডিভাইসে কাজ করে",
+    title: "Android ও iOS সাপোর্ট",
+    description: "Android 9 বা তার উপরের এবং iOS 14.5  বা তার উপরের সকল ডিভাইসে কাজ করে",
   },
   {
     id: "button",
