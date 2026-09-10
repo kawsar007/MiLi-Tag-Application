@@ -19,7 +19,7 @@ export const site = {
     { label: "YouTube", href: "#" },
   ],
   nav: [
-    { label: "Product", href: "#product" },
+    { label: "Product", href: "#top" },
     { label: "Why Us", href: "#why-us" },
     { label: "TechSpecS", href: "#faq" },
     { label: "Contact", href: "#contact" },

@@ -1,4 +1,5 @@
 import MetaPixel from "@/components/analytics/MetaPixel";
+import BackToTop from "@/components/ui/BackToTop";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
@@ -79,6 +80,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <BackToTop />
         <MetaPixel />
         {children}
       </body>
