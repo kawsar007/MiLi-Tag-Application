@@ -41,24 +41,39 @@ export default function OrderSummaryCard({
   isSubmitting,
   orderConfirmed,
 }: OrderSummaryCardProps) {
+  // const { product } = useProduct();
+  // const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
+  // const parsedUnit = parseAmount(priceCents ? formatBDT(priceCents) : unitPrice);
+  // const deliveryChargeNumeric = deliveryCharges[deliveryArea];
+  // const deliveryLabel = deliveryOptions.find((option) => option.value === deliveryArea)?.label ?? "";
+
+  // const subtotalNumeric = parsedUnit !== null ? parsedUnit * quantity : null;
+  // const subtotalDisplay =
+  //   subtotalNumeric !== null ? formatLikeSource(subtotalNumeric, unitPrice) : unitPrice;
+
+  // const deliveryDisplay = formatLikeSource(deliveryChargeNumeric, unitPrice);
+
+  // // Single place where the payable total is assembled. If discounts or taxes are
+  // // introduced later, add/subtract them here — the button below always reads from
+  // // this one value, so it can never drift out of sync with the breakdown above it.
+  // const totalNumeric = subtotalNumeric !== null ? subtotalNumeric + deliveryChargeNumeric : null;
+  // // const totalDisplay = totalNumeric !== null ? formatLikeSource(totalNumeric, unitPrice) : subtotalDisplay;
+  // const totalDisplay = totalNumeric !== null ? formatBDT(totalNumeric * 100) : subtotalDisplay;
+
   const { product } = useProduct();
   const { name, title, subtitle, priceCents, originalPriceCents, discountPriceCents } = product || {};
-  const parsedUnit = parseAmount(priceCents ? formatBDT(priceCents) : unitPrice);
+
   const deliveryChargeNumeric = deliveryCharges[deliveryArea];
   const deliveryLabel = deliveryOptions.find((option) => option.value === deliveryArea)?.label ?? "";
 
-  const subtotalNumeric = parsedUnit !== null ? parsedUnit * quantity : null;
-  const subtotalDisplay =
-    subtotalNumeric !== null ? formatLikeSource(subtotalNumeric, unitPrice) : unitPrice;
+  // Single source of truth for the per-unit price used in money math.
+  const unitPriceCents = discountPriceCents ?? priceCents ?? 0;
 
-  const deliveryDisplay = formatLikeSource(deliveryChargeNumeric, unitPrice);
+  // Subtotal = unit price * quantity, in cents.
+  const subtotalCents = unitPriceCents * quantity;
 
-  // Single place where the payable total is assembled. If discounts or taxes are
-  // introduced later, add/subtract them here — the button below always reads from
-  // this one value, so it can never drift out of sync with the breakdown above it.
-  const totalNumeric = subtotalNumeric !== null ? subtotalNumeric + deliveryChargeNumeric : null;
-  // const totalDisplay = totalNumeric !== null ? formatLikeSource(totalNumeric, unitPrice) : subtotalDisplay;
-  const totalDisplay = totalNumeric !== null ? formatBDT(totalNumeric * 100) : subtotalDisplay;
+  // Total = subtotal + delivery (delivery is stored as a plain number, so convert to cents).
+  const totalCents = subtotalCents + deliveryChargeNumeric * 100;
 
   return (
     <div className="flex flex-col gap-6 rounded-2xl border border-cloud-line bg-white p-6 shadow-sm sm:p-8">
@@ -89,15 +104,15 @@ export default function OrderSummaryCard({
       <dl className="flex flex-col gap-3 border-t border-cloud-line pt-4 text-sm">
         <div className="flex items-center justify-between">
           <dt className="text-steel">Subtotal</dt>
-          <dd className="text-ink transition-all duration-150">{formatBDT(discountPriceCents ?? 0)}</dd>
+          <dd className="text-ink transition-all duration-150">{formatBDT(subtotalCents)}</dd>
         </div>
         <div className="flex items-center justify-between">
           <dt className="text-steel">Delivery charge ({deliveryLabel})</dt>
-          <dd className="text-ink transition-all duration-150">{deliveryDisplay}</dd>
+          <dd className="text-ink transition-all duration-150">{formatBDT(deliveryChargeNumeric * 100)}</dd>
         </div>
         <div className="flex items-center justify-between border-t border-cloud-line pt-3 text-base font-semibold">
           <dt className="text-ink">Total</dt>
-          <dd className="text-ink transition-all duration-150">{totalDisplay}</dd>
+          <dd className="text-ink transition-all duration-150">{formatBDT(totalCents)}</dd>
         </div>
       </dl>
 
